@@ -1,0 +1,51 @@
+{
+  "version": "3.4",
+  "subject": "math",
+  "grade": "10",
+  "semester": "1",
+  "themes": [
+    {
+      "id": "campus",
+      "name": "校園晨光",
+      "bg1": "#6ca8ff",
+      "bg2": "#eaf4ff",
+      "accent": "#4656d6"
+    },
+    {
+      "id": "music",
+      "name": "音樂夜色",
+      "bg1": "#7564d8",
+      "bg2": "#202956",
+      "accent": "#6556d6"
+    },
+    {
+      "id": "sports",
+      "name": "球場活力",
+      "bg1": "#ff936f",
+      "bg2": "#ffe8da",
+      "accent": "#de714a"
+    },
+    {
+      "id": "study",
+      "name": "夜讀桌面",
+      "bg1": "#6f7d92",
+      "bg2": "#dfe7f2",
+      "accent": "#586a84"
+    }
+  ],
+  "ranges": [
+    "第一次段考｜實數、式的運算、絕對值、指數與常用對數",
+    "第二次段考｜直線方程式、二元一次不等式、圓、直線與圓",
+    "第三次段考｜多項式運算、餘式／因式定理、一次／二次函數、三次函數與不等式"
+  ],
+  "features": [
+    "local_svg_diagrams",
+    "interactive_mindmap",
+    "formal_exams",
+    "error_analysis",
+    "mastery_estimation",
+    "spaced_review",
+    "similar_questions"
+  ],
+  "diagram_data": "data/math/diagrams.json"
+}

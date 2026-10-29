@@ -1,0 +1,662 @@
+{
+  "A": [
+    {
+      "id": "2A_s1",
+      "type": "single",
+      "text": "f(x)=x²−3x+2，f(1)=",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "2"
+      ],
+      "answer": 1,
+      "explain": "直接代入。",
+      "quick": "不要猶豫。",
+      "unit": "u10",
+      "level": "暖身",
+      "points": 3
+    },
+    {
+      "id": "2A_s2",
+      "type": "single",
+      "text": "若 f(2)=0，則哪一個必為因式？",
+      "options": [
+        "x+2",
+        "x-2",
+        "2x-1",
+        "x²-2"
+      ],
+      "answer": 1,
+      "explain": "因式定理。",
+      "quick": "看到根 2 就寫 x−2。",
+      "unit": "u10",
+      "level": "暖身",
+      "points": 3
+    },
+    {
+      "id": "2A_s3",
+      "type": "single",
+      "text": "x³−8 除以 x−2 的餘式？",
+      "options": [
+        "0",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": 0,
+      "explain": "f(2)=0。",
+      "quick": "直接代。",
+      "unit": "u10",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2A_s4",
+      "type": "single",
+      "text": "四次多項式除以二次式，餘式最高幾次？",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 1,
+      "explain": "餘式次數小於除式次數2。",
+      "quick": "先看除式次數。",
+      "unit": "u09",
+      "level": "暖身",
+      "points": 3
+    },
+    {
+      "id": "2A_s5",
+      "type": "single",
+      "text": "y=(x−3)²+1 的頂點？",
+      "options": [
+        "(-3,1)",
+        "(3,1)",
+        "(1,3)",
+        "(3,-1)"
+      ],
+      "answer": 1,
+      "explain": "頂點式直接讀。",
+      "quick": "不用展開。",
+      "unit": "u11",
+      "level": "暖身",
+      "points": 3
+    },
+    {
+      "id": "2A_s6",
+      "type": "single",
+      "text": "y=-2(x+1)²+5 的最大值？",
+      "options": [
+        "-2",
+        "1",
+        "5",
+        "7"
+      ],
+      "answer": 2,
+      "explain": "開口向下，頂點 y=5。",
+      "quick": "a<0 看最大。",
+      "unit": "u11",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2A_s7",
+      "type": "single",
+      "text": "(x−1)(x+2)>0 的解？",
+      "options": [
+        "-2<x<1",
+        "x<-2或x>1",
+        "x>-2",
+        "x<1"
+      ],
+      "answer": 1,
+      "explain": "零點外側為正。",
+      "quick": "不展開，畫號線。",
+      "unit": "u12",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2A_s8",
+      "type": "single",
+      "text": "x²−5x+6 的因式分解？",
+      "options": [
+        "(x−1)(x−6)",
+        "(x−2)(x−3)",
+        "(x+2)(x+3)",
+        "(x−2)(x+3)"
+      ],
+      "answer": 1,
+      "explain": "乘積6、和-5。",
+      "quick": "先找兩數。",
+      "unit": "u09",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2A_s9",
+      "type": "single",
+      "text": "某社團人氣模型 P(t)=-4(t-12)²+144，最大人氣為？",
+      "options": [
+        "12",
+        "36",
+        "144",
+        "576"
+      ],
+      "answer": 2,
+      "explain": "頂點 y 值即最大。",
+      "quick": "看頂點式。",
+      "unit": "u11",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "id": "2A_s10",
+      "type": "single",
+      "text": "若 P(t)=-4(t-12)²+144，何時 P(t)=0？",
+      "options": [
+        "0與24",
+        "6與18",
+        "8與16",
+        "只有12"
+      ],
+      "answer": 1,
+      "explain": "移項後開平方。",
+      "quick": "先除 -4。",
+      "unit": "u11",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "id": "2A_s11",
+      "type": "single",
+      "text": "若 f(x)=x³，圖形具有哪種對稱？",
+      "options": [
+        "對x軸",
+        "對y軸",
+        "對原點",
+        "無"
+      ],
+      "answer": 2,
+      "explain": "奇函數。",
+      "quick": "測 f(-x) 與 f(x) 關係。",
+      "unit": "u12",
+      "level": "挑戰",
+      "points": 3
+    },
+    {
+      "id": "2A_s12",
+      "type": "single",
+      "text": "若多項式除以 x−2 餘 3，則代入 x=2 會得到？",
+      "options": [
+        "0",
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": 2,
+      "explain": "餘式定理 P(2)=3。",
+      "quick": "翻譯成函數值。",
+      "unit": "u10",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "type": "multi",
+      "text": "關於餘式定理，下列哪些正確？（複選）",
+      "options": [
+        "除以x−a的餘式是f(a)",
+        "f(a)=0則x−a為因式",
+        "除以x²−1的餘式一定是常數",
+        "一次除式餘式常可直接代入"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explain": "除以二次式的餘式最多一次，不一定常數。",
+      "quick": "一次除式最適合直接代值。",
+      "unit": "u10",
+      "level": "複選",
+      "id": "2A_x1",
+      "points": 5
+    },
+    {
+      "type": "multi",
+      "text": "關於 y=a(x−h)²+k，下列哪些正確？（複選）",
+      "options": [
+        "頂點(h,k)",
+        "a>0時最小值k",
+        "a<0時最大值k",
+        "對稱軸y=h"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "對稱軸應是x=h。",
+      "quick": "頂點式直接讀三件事。",
+      "unit": "u11",
+      "level": "複選",
+      "id": "2A_x2",
+      "points": 5
+    },
+    {
+      "type": "fill",
+      "text": "f(x)=x³−4x+1 除以 x−2 的餘式為 ______。",
+      "answer": [
+        "1"
+      ],
+      "explain": "f(2)=1。",
+      "quick": "直接代2。",
+      "unit": "u10",
+      "level": "填充",
+      "id": "2A_x3",
+      "points": 6
+    },
+    {
+      "type": "fill",
+      "text": "y=x²−8x+7 的對稱軸為 x=______。",
+      "answer": [
+        "4"
+      ],
+      "explain": "x=−b/(2a)=4。",
+      "quick": "−b/2a。",
+      "unit": "u11",
+      "level": "填充",
+      "id": "2A_x4",
+      "points": 6
+    },
+    {
+      "type": "fill",
+      "text": "解 (x−3)(x+1)≤0，答案為 ______。",
+      "answer": [
+        "-1≤x≤3",
+        "−1≤x≤3"
+      ],
+      "explain": "取兩根中間且含端點。",
+      "quick": "零點＋號線。",
+      "unit": "u12",
+      "level": "填充",
+      "id": "2A_x5",
+      "points": 6
+    },
+    {
+      "type": "written",
+      "text": "說明『若 f(3)=0，則 x−3 是因式』的餘式定理邏輯。",
+      "answer": "除以x−3的餘式是f(3)=0，所以可整除，因此x−3為因式。",
+      "rubric": [
+        "餘式=f(3)",
+        "f(3)=0",
+        "可整除"
+      ],
+      "unit": "u10",
+      "level": "非選",
+      "id": "2A_x6",
+      "points": 12
+    },
+    {
+      "type": "written",
+      "text": "人氣模型 P(t)=−3(t−4)²+48。求最高人氣與發生時間，並解釋。",
+      "answer": "最高48，t=4。係數為負，開口向下，頂點為最大點。",
+      "rubric": [
+        "t=4",
+        "最大48",
+        "說明頂點最大"
+      ],
+      "unit": "u11",
+      "level": "非選",
+      "id": "2A_x7",
+      "points": 12
+    },
+    {
+      "type": "written",
+      "text": "解 (x−2)²(x+3)>0，並說明 x=2 左右為何不換號。",
+      "answer": "解為(−3,2)∪(2,∞)。x=2是偶重根，所以跨過時不換號。",
+      "rubric": [
+        "零點−3與2",
+        "偶重根不換號",
+        "解集正確"
+      ],
+      "unit": "u12",
+      "level": "非選",
+      "id": "2A_x8",
+      "points": 12
+    }
+  ],
+  "B": [
+    {
+      "id": "2B_s1",
+      "type": "single",
+      "text": "f(x)=2x³−x+5，除以 x−1 餘式？",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": 1,
+      "explain": "f(1)=2−1+5=6。",
+      "quick": "直接代 1。",
+      "unit": "u10",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2B_s2",
+      "type": "single",
+      "text": "若 x+3 為 f(x) 因式，則 f(-3)=？",
+      "options": [
+        "-3",
+        "0",
+        "3",
+        "9"
+      ],
+      "answer": 1,
+      "explain": "因式定理。",
+      "quick": "x+3 看成 x−(-3)。",
+      "unit": "u10",
+      "level": "暖身",
+      "points": 3
+    },
+    {
+      "id": "2B_s3",
+      "type": "single",
+      "text": "若 f(x)=x²+ax+6 且 f(2)=0，a=?",
+      "options": [
+        "-5",
+        "-4",
+        "-3",
+        "-2"
+      ],
+      "answer": 0,
+      "explain": "4+2a+6=0。",
+      "quick": "代入比展開快。",
+      "unit": "u10",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2B_s4",
+      "type": "single",
+      "text": "x²−4≤0 的解？",
+      "options": [
+        "x≤-2或x≥2",
+        "-2≤x≤2",
+        "x≥0",
+        "全體"
+      ],
+      "answer": 1,
+      "explain": "在兩根之間且含端點。",
+      "quick": "≤0 常取中間。",
+      "unit": "u12",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2B_s5",
+      "type": "single",
+      "text": "y=x²−6x+5 的最小值？",
+      "options": [
+        "-9",
+        "-4",
+        "4",
+        "5"
+      ],
+      "answer": 1,
+      "explain": "對稱軸 x=3，代回得 -4。",
+      "quick": "先找 x=-b/2a。",
+      "unit": "u11",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2B_s6",
+      "type": "single",
+      "text": "一場表演節目滿意度模型 S(t)=-(t-5)²+9，最高滿意度？",
+      "options": [
+        "4",
+        "5",
+        "9",
+        "25"
+      ],
+      "answer": 2,
+      "explain": "頂點 y 值。",
+      "quick": "頂點式直接讀。",
+      "unit": "u11",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "id": "2B_s7",
+      "type": "single",
+      "text": "(x−1)²(x+2)>0，穿過 x=1 時正負號會？",
+      "options": [
+        "一定改變",
+        "通常不改變",
+        "變成不存在",
+        "無法判斷"
+      ],
+      "answer": 1,
+      "explain": "偶數重根通常不換號。",
+      "quick": "偶重根像碰到彈回。",
+      "unit": "u12",
+      "level": "挑戰",
+      "points": 3
+    },
+    {
+      "id": "2B_s8",
+      "type": "single",
+      "text": "若三次多項式最高次項係數為正，則 x→+∞ 時 f(x) 趨向？",
+      "options": [
+        "+∞",
+        "-∞",
+        "0",
+        "固定"
+      ],
+      "answer": 0,
+      "explain": "最高次項主導。",
+      "quick": "看最右端走向。",
+      "unit": "u12",
+      "level": "標準",
+      "points": 3
+    },
+    {
+      "id": "2B_s9",
+      "type": "single",
+      "text": "比賽積分模型 (x−1)(x+2)≥0 的解？",
+      "options": [
+        "-2≤x≤1",
+        "x≤-2或x≥1",
+        "x>-2",
+        "x<1"
+      ],
+      "answer": 1,
+      "explain": "含端點的外側。",
+      "quick": "≥0 要記得包含根。",
+      "unit": "u12",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "id": "2B_s10",
+      "type": "single",
+      "text": "若多項式 P(x) 除以 x−2 餘 3、除以 x−1 餘 1，則 P(2)+P(1)=？",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2,
+      "explain": "P(2)=3，P(1)=1。",
+      "quick": "把敘述直接翻譯。",
+      "unit": "u10",
+      "level": "挑戰",
+      "points": 3
+    },
+    {
+      "id": "2B_s11",
+      "type": "single",
+      "text": "社團人氣模型 y=-2(x-3)²+5，人氣最高時 x=? ",
+      "options": [
+        "-3",
+        "3",
+        "5",
+        "6"
+      ],
+      "answer": 1,
+      "explain": "頂點 x=3。",
+      "quick": "看頂點座標。",
+      "unit": "u11",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "id": "2B_s12",
+      "type": "single",
+      "text": "若商店推出方案：x 杯飲料與 x+1 杯點心的乘積代表熱銷指數，判斷正負時最適合用什麼觀念？",
+      "options": [
+        "展開全部",
+        "畫號線",
+        "代入 x=0",
+        "直接看係數"
+      ],
+      "answer": 1,
+      "explain": "若寫成因式形式，畫號線最直觀。",
+      "quick": "因式型不等式先畫號線。",
+      "unit": "u12",
+      "level": "素養",
+      "points": 3
+    },
+    {
+      "type": "multi",
+      "text": "關於多項式除法，下列哪些正確？（複選）",
+      "options": [
+        "餘式次數小於除式",
+        "四次除二次商最高二次",
+        "除一次式餘式可為一次式",
+        "綜合除法適合除以x−a"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "explain": "除一次式時餘式只能是常數。",
+      "quick": "先用次數預判。",
+      "unit": "u09",
+      "level": "複選",
+      "id": "2B_x1",
+      "points": 5
+    },
+    {
+      "type": "multi",
+      "text": "關於多項式不等式號線，下列哪些正確？（複選）",
+      "options": [
+        "先找零點",
+        "偶重根通常不換號",
+        "奇重根通常換號",
+        "所有根都一定排除"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explain": "是否包含根取決於嚴格或非嚴格不等號。",
+      "quick": "零點、重數、端點三步。",
+      "unit": "u12",
+      "level": "複選",
+      "id": "2B_x2",
+      "points": 5
+    },
+    {
+      "type": "fill",
+      "text": "若 P(x) 除以 x+2 的餘式為5，則 P(-2)=______。",
+      "answer": [
+        "5"
+      ],
+      "explain": "x+2=x−(−2)。",
+      "quick": "找到a=−2。",
+      "unit": "u10",
+      "level": "填充",
+      "id": "2B_x3",
+      "points": 6
+    },
+    {
+      "type": "fill",
+      "text": "y=−x²+6x−5 的最大值為 ______。",
+      "answer": [
+        "4"
+      ],
+      "explain": "頂點x=3，代入得4。",
+      "quick": "先找−b/2a。",
+      "unit": "u11",
+      "level": "填充",
+      "id": "2B_x4",
+      "points": 6
+    },
+    {
+      "type": "fill",
+      "text": "若 f(x)=x³，則 f(-2)=______。",
+      "answer": [
+        "-8",
+        "−8"
+      ],
+      "explain": "(-2)³=−8。",
+      "quick": "奇次方保留負號。",
+      "unit": "u12",
+      "level": "填充",
+      "id": "2B_x5",
+      "points": 6
+    },
+    {
+      "type": "written",
+      "text": "校慶攤位收益 R(x)=−2x²+40x−150。求最大收益與發生的x。",
+      "answer": "頂點x=10，R(10)=50，所以最大收益50。",
+      "rubric": [
+        "x=10",
+        "R=50",
+        "說明是最大"
+      ],
+      "unit": "u11",
+      "level": "非選",
+      "id": "2B_x6",
+      "points": 12
+    },
+    {
+      "type": "written",
+      "text": "比較直接展開 (x−1)(x+2)>0 與畫號線，說明後者為何常較快。",
+      "answer": "因式形式可直接讀零點−2與1，畫號線即可判三區間符號；展開後通常仍要找根。",
+      "rubric": [
+        "直接讀零點",
+        "號線判符號",
+        "說明展開步驟較多"
+      ],
+      "unit": "u12",
+      "level": "非選",
+      "id": "2B_x7",
+      "points": 12
+    },
+    {
+      "type": "written",
+      "text": "若 P(1)=2、P(3)=0，說明可立即得到哪些除法／因式資訊。",
+      "answer": "除以x−1餘2；x−3是因式，除以x−3餘0。",
+      "rubric": [
+        "x−1餘2",
+        "x−3為因式",
+        "x−3餘0"
+      ],
+      "unit": "u10",
+      "level": "非選",
+      "id": "2B_x8",
+      "points": 12
+    }
+  ]
+}

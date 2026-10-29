@@ -1,0 +1,52 @@
+[
+  {
+    "id": "math",
+    "name": "數學",
+    "grade": "高一上",
+    "status": "active",
+    "base": "data/math",
+    "config": "data/math/config.json",
+    "units": "data/math/units.json",
+    "exams": [
+      {
+        "id": "exam1",
+        "name": "第一次段考",
+        "file": "data/math/exam1.json"
+      },
+      {
+        "id": "exam2",
+        "name": "第二次段考",
+        "file": "data/math/exam2.json"
+      },
+      {
+        "id": "exam3",
+        "name": "第三次段考",
+        "file": "data/math/exam3.json"
+      }
+    ]
+  },
+  {
+    "id": "physics",
+    "name": "物理",
+    "grade": "高一上",
+    "status": "planned"
+  },
+  {
+    "id": "chemistry",
+    "name": "化學",
+    "grade": "高一上",
+    "status": "planned"
+  },
+  {
+    "id": "english",
+    "name": "英文",
+    "grade": "高一上",
+    "status": "planned"
+  },
+  {
+    "id": "chinese",
+    "name": "國文",
+    "grade": "高一上",
+    "status": "planned"
+  }
+]

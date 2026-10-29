@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="高中各科學習題庫管理頁：搜尋、新增、修改、複製、刪除、驗證、匯入與匯出 JSON。">
+<title>題庫管理｜高中各科學習 3.4</title>
+<link rel="stylesheet" href="assets/css/manager.css">
+</head>
+<body>
+<header class="top">
+  <div class="hero">
+    <h1>🧰 題庫管理｜3.4</h1>
+    <p>不用直接編輯 JSON。你可以在這裡搜尋、篩選、新增、修改、複製、刪除題目；草稿先存在瀏覽器，確認後再匯出新的 JSON 覆蓋 GitHub repository 裡的資料檔。</p>
+    <div class="heroActions">
+      <a href="index.html">← 網站首頁</a>
+      <a href="math.html">📐 學生版數學</a>
+      <button onclick="document.getElementById('fileImport').click()">匯入 JSON</button>
+      <button onclick="exportCurrentExam()">匯出目前段考 JSON</button>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="panel">
+    <div class="toolbar">
+      <div class="field"><label>科目</label><select id="subjectSelect"></select></div>
+      <div class="field"><label>段考資料檔</label><select id="examSelect"></select></div>
+      <div class="field"><label>試卷</label><select id="paperFilter"><option value="">A + B 全部</option><option>A</option><option>B</option></select></div>
+      <div class="field"><label>題型</label><select id="typeFilter"><option value="">全部題型</option><option value="single">單選</option><option value="multi">複選</option><option value="fill">填充</option><option value="written">非選</option></select></div>
+      <div class="field"><label>單元</label><select id="unitFilter"><option value="">全部單元</option></select></div>
+      <div class="field search"><label>搜尋</label><input id="searchInput" placeholder="搜尋題目、ID、解析、快解…"></div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="workspace">
+    <div class="panel listPanel">
+      <div class="listHead"><h2>題目清單</h2><button class="btn" onclick="newQuestion()">＋ 新增題目</button></div>
+      <div class="qList" id="qList"></div>
+    </div>
+
+    <div class="panel editPanel">
+      <div class="editHead"><h2 id="editorTitle">題目編輯器</h2><span id="draftBadge" class="pill hidden">本機草稿</span></div>
+      <div id="emptyEditor" class="note">請從左側選一題，或按「＋新增題目」。</div>
+      <form id="editorForm" class="hidden" onsubmit="event.preventDefault();saveQuestion();">
+        <div class="formGrid">
+          <div class="field"><label>試卷</label><select id="fPaper"><option>A</option><option>B</option></select></div>
+          <div class="field"><label>題型</label><select id="fType" onchange="renderTypeFields()"><option value="single">單選</option><option value="multi">複選</option><option value="fill">填充</option><option value="written">非選</option></select></div>
+          <div class="field"><label>單元</label><select id="fUnit"></select></div>
+          <div class="field"><label>配分</label><input id="fPoints" type="number" min="0" step="1"></div>
+
+          <div class="field span2"><label>題目 ID</label><input id="fId"><div class="help">建議保持唯一；新增時可自動產生。</div></div>
+          <div class="field"><label>難度／層級</label><input id="fLevel" placeholder="暖身／標準／素養／挑戰…"></div>
+          <div class="field"><label>情境標籤</label><input id="fContext" placeholder="校園、社群、時事…（可空白）"></div>
+
+          <div class="field span4"><label>題目文字</label><textarea id="fText"></textarea></div>
+        </div>
+
+        <div class="conditional" id="typeFields"></div>
+
+        <div class="formGrid" style="margin-top:10px">
+          <div class="field span2"><label>詳細解析</label><textarea id="fExplain"></textarea></div>
+          <div class="field span2"><label>⚡ 快解／提示</label><textarea id="fQuick"></textarea></div>
+          <div class="field span2"><label>Tags</label><input id="fTags" placeholder="逗號分隔，例如：絕對值,距離,國中銜接"></div>
+          <div class="field span2"><label>來源／備註</label><input id="fSource" placeholder="自建題／官方資料背景／來源說明"></div>
+        </div>
+
+        <div class="actions">
+          <button class="btnGood" type="submit">儲存題目</button>
+          <button class="btn2" type="button" onclick="duplicateQuestion()">複製成新題</button>
+          <button class="btn2" type="button" onclick="validateCurrent()">驗證這一題</button>
+          <button class="btnDanger" type="button" onclick="deleteQuestion()">刪除</button>
+        </div>
+        <div id="editorStatus" class="status">尚未修改。</div>
+      </form>
+    </div>
+  </section>
+
+  <section class="panel filebar">
+    <strong>資料檔操作</strong>
+    <input id="fileImport" type="file" accept=".json,application/json" class="hidden">
+    <button class="btn2" onclick="document.getElementById('fileImport').click()">匯入 JSON</button>
+    <button class="btn" onclick="exportCurrentExam()">匯出目前段考 JSON</button>
+    <button class="btn2" onclick="exportCombined()">匯出全數學題庫 JSON</button>
+    <button class="btn2" onclick="validateExam()">驗證目前資料檔</button>
+    <button class="btnDanger" onclick="resetDraft()">放棄本機草稿，重讀網站 JSON</button>
+  </section>
+
+  <section class="panel schema">
+    <h2>資料結構與 GitHub 使用方式</h2>
+    <div class="note"><b>重要：</b>GitHub Pages 是靜態網站。這個管理頁可以編輯與匯出 JSON，但不會直接寫回 GitHub。匯出後，把新檔案覆蓋到 <code>data/math/exam1.json</code> 等位置，再 commit / push 即可更新公開網站。</div>
+    <div class="schemaGrid" style="margin-top:12px">
+      <div class="schemaCard"><b>單選 single</b><br>options：選項陣列<br>answer：正確選項索引（0=A）</div>
+      <div class="schemaCard"><b>複選 multi</b><br>options：選項陣列<br>answer：正確索引陣列，如 [0,2]</div>
+      <div class="schemaCard"><b>填充 fill</b><br>answer：可接受答案陣列；可放不同格式</div>
+      <div class="schemaCard"><b>非選 written</b><br>answer：參考答案<br>rubric：評分要點陣列</div>
+      <div class="schemaCard"><b>共通欄位</b><br>id、unit、level、points、text、explain、quick</div>
+      <div class="schemaCard"><b>擴充欄位</b><br>tags、context、source 都是選填；學生版會忽略不認識的欄位，不影響既有題庫。</div>
+    </div>
+  </section>
+</main>
+<script src="assets/js/question-manager.js"></script>
+</body>
+</html>
