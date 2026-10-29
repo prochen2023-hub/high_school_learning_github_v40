@@ -3,64 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>高中各科學習 4.6｜闖關學習基地</title>
+<title>高中攻克基地 4.7｜今天只攻一關</title>
 <link rel="stylesheet" href="assets/css/account.css">
 <style>
-:root{--navy:#0c1738;--navy2:#132a61;--card:#fff;--ink:#17233d;--muted:#68758c;--line:#dce5f2;--blue:#4679ef;--pink:#ef6d94;--green:#2bad78;--gold:#efb33e}
-*{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}
-body{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#08142f;color:#fff;min-height:100vh}
-.sky{position:fixed;inset:0;pointer-events:none;background:
-radial-gradient(circle at 16% 16%,rgba(88,120,255,.24),transparent 28%),
-radial-gradient(circle at 85% 18%,rgba(176,91,238,.18),transparent 24%),
-linear-gradient(180deg,#08142f 0%,#10285a 48%,#eaf1ff 48%,#f7f9fd 100%);z-index:-2}
-.sky:after{content:"";position:absolute;left:0;right:0;top:34%;height:14%;opacity:.18;background:repeating-linear-gradient(90deg,transparent 0 34px,#fff 35px 36px,transparent 37px 65px)}
-.wrap{max-width:1160px;margin:auto;padding:28px 18px 60px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
-.logo{display:flex;gap:10px;align-items:center}.mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#477bf3,#8a67ee);display:grid;place-items:center;font-size:25px;font-weight:900}
-.logo b{font-size:18px}.logo small{display:block;color:#b9c8e9;margin-top:2px}
-.top a{color:#dce7ff;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:9px 11px;font-size:12px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center;margin-bottom:24px}
-.hero h1{font-size:clamp(35px,6vw,66px);line-height:1.03;margin:0 0 12px;letter-spacing:-1px}
-.hero p{color:#d7e2f7;line-height:1.8;max-width:650px;font-size:15px}
-.hero strong{color:#ffd972}.start{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#19366f;text-decoration:none;font-weight:900;padding:13px 17px;border-radius:13px;margin-top:8px;box-shadow:0 14px 34px rgba(0,0,0,.2)}
-.missionCard{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:18px;backdrop-filter:blur(8px)}
-.missionCard h2{margin:0 0 8px}.missionCard p{font-size:13px;line-height:1.65;margin:0;color:#dbe7fb}
-.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.stat{background:rgba(255,255,255,.09);border-radius:12px;padding:10px}.stat b{display:block;font-size:19px}.stat small{color:#bfcde6}
-.mapSection{color:var(--ink);background:rgba(248,251,255,.96);border-radius:26px;padding:21px;box-shadow:0 20px 60px rgba(7,22,55,.22)}
-.mapHead{display:flex;justify-content:space-between;gap:12px;align-items:end}.mapHead h2{margin:0;font-size:25px}.mapHead p{margin:4px 0 0;color:var(--muted);font-size:13px}.badge{background:#eef3ff;color:#375ac6;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:800}
-.questPath{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-top:21px;padding:15px 0}
-.questPath:before{content:"";position:absolute;top:57px;left:7%;right:7%;height:5px;background:linear-gradient(90deg,#3d75eb,#7a69eb,#eb6c96,#e7aa36,#36ad7d);border-radius:99px;opacity:.55}
-.node{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px;min-height:154px;box-shadow:0 8px 24px rgba(34,58,105,.06)}
-.nodeNum{width:45px;height:45px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;margin-bottom:10px;border:5px solid #f8fbff}
-.node:nth-child(1) .nodeNum{background:#3974ed}.node:nth-child(2) .nodeNum{background:#6e69ea}.node:nth-child(3) .nodeNum{background:#e76b93}.node:nth-child(4) .nodeNum{background:#e5a837}.node:nth-child(5) .nodeNum{background:#2ca975}
-.node h3{font-size:14px;margin:0 0 5px}.node p{font-size:11px;line-height:1.55;color:var(--muted);margin:0}.node small{display:block;margin-top:7px;font-weight:800;color:#51658f}
-.node.hot{outline:3px solid rgba(75,118,236,.16);transform:translateY(-4px)}
-.subjects{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;margin-top:14px}.subject{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.subject h3{margin:0 0 6px}.subject p{color:var(--muted);font-size:12px;line-height:1.6}.subject a{display:inline-block;text-decoration:none;background:#193a80;color:#fff;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:800}.locked{opacity:.65}
-@media(max-width:850px){.hero{grid-template-columns:1fr}.questPath{grid-template-columns:1fr 1fr}.questPath:before{display:none}.subjects{grid-template-columns:1fr}}
-@media(max-width:480px){.wrap{padding:16px 10px 35px}.top{align-items:flex-start}.logo small{max-width:190px}.hero h1{font-size:38px}.mapSection{padding:14px;border-radius:19px}.questPath{grid-template-columns:1fr}.node{min-height:0;display:grid;grid-template-columns:52px 1fr;column-gap:9px}.nodeNum{grid-row:1/4}.node h3,.node p,.node small{grid-column:2}.statrow{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:span 2}}
+:root{--navy:#09152f;--navy2:#142b61;--ink:#18243f;--muted:#6f7c91;--line:#dce5f2}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow-x:hidden}
+body{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:linear-gradient(180deg,#08152f 0,#132b60 48%,#eef3fb 48%,#f7f9fd 100%);color:#fff}
+body:before,body:after{content:"✦";position:fixed;color:#fff;opacity:.18;pointer-events:none;animation:float 5s ease-in-out infinite}
+body:before{left:8vw;top:14vh;font-size:19px}body:after{right:10vw;top:25vh;font-size:12px;animation-delay:1.7s}
+@keyframes float{50%{transform:translateY(-6px);opacity:.08}}
+.wrap{max-width:980px;margin:auto;padding:22px 14px 48px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{display:flex;gap:9px;align-items:center}.mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#4d7df1,#8b67ed);display:grid;place-items:center;font-size:24px;font-weight:900}.logo b{font-size:17px}.logo small{display:block;color:#b8c8e7;font-size:10px;margin-top:2px}.topActions{display:flex;gap:7px;align-items:center}.topActions a,.topActions button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#e2eaff;border-radius:10px;padding:8px 10px;font-size:11px;text-decoration:none;cursor:pointer}
+.hero{text-align:center;padding:70px 10px 60px}.hero .eyebrow{font-size:11px;font-weight:900;letter-spacing:.15em;color:#9fbbff}.hero h1{font-size:clamp(38px,7vw,68px);line-height:1.05;margin:10px 0}.hero h1 strong{color:#ffd875}.hero p{max-width:620px;margin:0 auto;color:#d8e4fb;line-height:1.8;font-size:14px}.start{display:inline-flex;margin-top:20px;align-items:center;gap:8px;background:#fff;color:#17366f;text-decoration:none;font-weight:900;border-radius:14px;padding:14px 18px;box-shadow:0 15px 40px rgba(0,0,0,.22)}
+.mainCard{color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:23px;padding:18px;box-shadow:0 18px 50px rgba(13,31,71,.17)}
+.today{display:grid;grid-template-columns:1.35fr .65fr;gap:14px;align-items:center}.today h2{margin:0 0 7px;font-size:23px}.today p{color:var(--muted);font-size:12px;line-height:1.7;margin:0}.todayAction{background:linear-gradient(135deg,#eef4ff,#f7f3ff);border-radius:16px;padding:14px}.todayAction b{display:block;font-size:14px}.todayAction span{display:block;font-size:11px;color:#65738a;margin:5px 0 10px}.todayAction a{display:block;text-align:center;text-decoration:none;background:#183d89;color:#fff;border-radius:10px;padding:10px;font-size:12px;font-weight:900}
+details{margin-top:13px;border-top:1px solid #e7edf5;padding-top:11px}summary{cursor:pointer;color:#5f6f88;font-size:11px;font-weight:800;list-style:none}summary::-webkit-details-marker{display:none}.route{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:10px}.route div{background:#f7f9fd;border:1px solid #e1e7f1;border-radius:11px;padding:9px;text-align:center;font-size:10px;color:#5e6c82}.route b{display:block;font-size:15px;color:#3557ad;margin-bottom:3px}
+.accountHint{margin-top:11px;font-size:10px;color:#7c8798;text-align:center}
+@media(max-width:650px){.hero{padding:48px 8px 42px}.today{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}.route div:last-child{grid-column:span 2}.topActions a:nth-child(2){display:none}}
+@media(prefers-reduced-motion:reduce){body:before,body:after{animation:none}}
 </style>
 </head>
 <body>
-<div class="sky"></div>
 <main class="wrap">
-<header class="top"><div class="logo"><div class="mark">∑</div><div><b>高中攻克基地 4.6</b><small>不是念完，是一關一關把它打掉。</small></div></div><div style="display:flex;gap:8px"><button onclick="HSLAccount.openPanel()" style="color:#dce7ff;background:transparent;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:9px 11px;font-size:12px;cursor:pointer"><span data-account-name>登入</span></button><a href="admin-progress.html">版主進度</a><a href="manager.html">題庫管理</a></div></header>
+<header class="top">
+ <div class="logo"><div class="mark">∑</div><div><b>高中攻克基地 4.7</b><small>內容很深，但一次只看下一步</small></div></div>
+ <div class="topActions"><button onclick="HSLAccount.openPanel()"><span data-account-name>登入</span></button><a href="admin-progress.html">版主</a><a href="manager.html">題庫</a></div>
+</header>
 <section class="hero">
- <div><div style="font-size:12px;color:#9fbbff;font-weight:800">HIGH SCHOOL QUEST</div><h1>把「我不會」<br>變成 <strong>「就這樣？」</strong></h1><p>我們不照教科書順序把公式倒給你。先玩圖、先抓直覺、先贏一題，再把方法收斂成考場快解。每拿一顆星，代表你真的攻下一層能力。</p><a class="start" href="math.html">⚔️ 進入高一數學主線</a></div>
- <aside class="missionCard"><h2>今晚任務</h2><p>不用一次讀一章。選一關，先把互動圖玩懂，再做一題確認；如果你會開始預測圖怎麼動，就已經不是在背了。</p><div class="statrow"><div class="stat"><b>12</b><small>數學單元</small></div><div class="stat"><b>36★</b><small>全站星級</small></div><div class="stat"><b>4階</b><small>闖關難度</small></div></div></aside>
+ <div class="eyebrow">TODAY'S QUEST</div>
+ <h1>今天只攻<strong>一關</strong></h1>
+ <p>不用先看完整章、也不用先背公式。進去只做一件事：玩一張圖、抓一個觀念、做一題。過關後才會看到下一步。</p>
+ <a class="start" href="math.html">⚔️ 開始今天任務</a>
 </section>
-<section class="mapSection">
- <div class="mapHead"><div><h2>主線任務地圖</h2><p>順著路徑走，不用自己猜下一步要做什麼。</p></div><span class="badge">手機可玩</span></div>
- <div class="questPath">
-  <article class="node hot"><div class="nodeNum">1</div><h3>先玩懂</h3><p>拖滑桿、看圖變化，先建立直覺。</p><small>不要先背公式</small></article>
-  <article class="node"><div class="nodeNum">2</div><h3>看穿題型</h3><p>看到關鍵訊號，立刻知道這是哪一種題。</p><small>一型一型攻</small></article>
-  <article class="node"><div class="nodeNum">3</div><h3>跟著高手解</h3><p>完整例題逐步揭露，理解為什麼這樣走最快。</p><small>不是只看答案</small></article>
-  <article class="node"><div class="nodeNum">4</div><h3>四級闖關</h3><p>基礎 → 標準 → 素養 → 挑戰，逐層解鎖。</p><small>把能力拉上去</small></article>
-  <article class="node"><div class="nodeNum">★</div><h3>拿星封關</h3><p>星星代表真的會，不是頁面看完而已。</p><small>目標：3星</small></article>
+<section class="mainCard">
+ <div class="today">
+  <div><h2>先讓「不會」變成「就這樣？」</h2><p>目前直線單元已完整改成12關：每關只有一個互動、一句高手提醒、一題確認；每4關會整理一次，最後用Boss關解鎖全貌地圖。</p></div>
+  <div class="todayAction"><b id="resumeTitle">你的進度會保留</b><span id="resumeText">登入後會依帳號保存，不受4.8、5.0更新影響。</span><a href="math.html">繼續學習 →</a></div>
  </div>
- <div class="subjects">
-  <article class="subject"><h3>📐 高一上數學</h3><p>4.5 已把「直線全攻略」互動圖全面放大，加入全螢幕實驗室與多滑桿高手模式：斜率、截距、兩點成線、三點共線、聯立、平行與垂直全部改成互動圖解。</p><a href="math.html">開始攻克數學</a></article>
-  <article class="subject locked"><h3>🧪 其他科目</h3><p>物理、化學、英文等會沿用同一套「互動 → 題型 → 闖關」學習引擎。</p></article>
- </div>
+ <details>
+  <summary>想先偷看整條學習路徑？ ▾</summary>
+  <div class="route"><div><b>1</b>先玩懂</div><div><b>2</b>一題過關</div><div><b>3</b>段落小結</div><div><b>4</b>Boss整合</div><div><b>★</b>全貌地圖</div></div>
+ </details>
+ <div class="accountHint">背景只保留少量動態氣氛，不讓動畫搶走學習注意力。</div>
 </section>
 </main>
-<script src="assets/js/account-core.js"></script><script>document.addEventListener("DOMContentLoaded",()=>HSLAccount.boot({promptIfMissing:false}))</script></body></html>
+<script src="assets/js/account-core.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ HSLAccount.boot({promptIfMissing:false});
+ const a=HSLAccount.getAccount(),p=a?.progress?.math;
+ if(a){document.getElementById("resumeTitle").textContent=`${a.displayName}，歡迎回來`;const done=Object.values(p?.typeMastered?.u05||{}).filter(Boolean).length;document.getElementById("resumeText").textContent=done?`直線單元目前已攻下 ${done}/12 關。`:"今天從第一關開始就好。"}
+});
+</script>
+</body></html>
