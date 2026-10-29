@@ -2,21 +2,21 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="高一上數學4.0視覺互動版：適合中下程度往中上提升，圖像理解、快解、闖關、正式段考與錯因補強。">
-<title>高一上數學 4.1｜第一次學也看得懂</title>
+<meta name="description" content="高一上數學4.2：先教會再分級闖關，適合中下程度往中上提升，包含深度概念、圖像題型、四級練習、星級獎勵與正式段考。">
+<title>高一上數學 4.2｜先教會再分級闖關</title>
 <link rel="stylesheet" href="assets/css/math40.css">
 </head>
 <body>
 <div class="app">
 <header class="topbar">
-  <div class="brand"><div class="brandMark">∑</div><div><h1>高中數學 4.1</h1><small>先學懂 → 認題型 → 跟著做 → 自己做</small></div></div>
+  <div class="brand"><div class="brandMark">∑</div><div><h1>高中數學 4.2</h1><small>先學懂 → 看圖 → 認題型 → 分級闖關 → 拿星</small></div></div>
   <nav class="nav">
     <button class="on" onclick="scrollToTop()">首頁</button>
     <button onclick="showMap()">心智圖</button>
     <button onclick="showExamPicker()">正式模考</button>
     <button onclick="focusWeak()">弱點補強</button>
     <a href="manager.html">題庫管理</a>
-    <a href="math-classic.html">3.4舊版</a>
+    <a href="math-v41.html">4.1舊版</a>
   </nav>
   <input class="searchTop" id="topSearch" placeholder="搜尋單元、概念、題目…">
   <div class="profile"><div class="avatar">G1</div><div><b style="font-size:12px">高一上</b><div style="font-size:10px;color:#b8c8e7">目標：中上</div></div></div>
@@ -41,7 +41,7 @@
 
     <section class="unitTop">
       <div class="unitRow"><div><div class="eyebrow" id="unitExam">第一次段考</div><h2 id="unitTitle">載入中…</h2><div class="mission" id="unitMission"></div></div>
-      <div class="masteryPill"><span>本單元掌握</span><br><b id="masteryPct">0%</b></div></div>
+      <div class="masteryPill"><span>本單元掌握</span><br><b id="masteryPct">0%</b><div class="starDisplay" id="starDisplay">☆☆☆</div></div></div>
       <div class="tabs">
         <button class="tab on" data-tab="visual">① 先學懂</button>
         <button class="tab" data-tab="types">② 題型教學</button>
@@ -58,7 +58,7 @@
     <section class="practice">
       <div class="practiceHead">
         <div class="practiceHeadRow"><h3>🎯 學懂後再闖關</h3><button class="btn2" onclick="refreshPractice()">換一組</button></div>
-        <div class="modePills"><button class="modePill on">基礎</button><button class="modePill">標準</button><button class="modePill">素養</button><button class="modePill">挑戰</button></div>
+        <div class="modePills"><button class="modePill on" data-mode="foundation" onclick="setPracticeMode('foundation')">基礎</button><button class="modePill" data-mode="standard" onclick="setPracticeMode('standard')">標準</button><button class="modePill" data-mode="literacy" onclick="setPracticeMode('literacy')">素養</button><button class="modePill" data-mode="challenge" onclick="setPracticeMode('challenge')">挑戰</button></div>
       </div>
       <div class="qwrap" id="practiceArea"></div>
     </section>
@@ -73,6 +73,6 @@
 
 <div class="modal" id="modal"><div class="modalBox"><div class="modalHead"><h2 id="modalTitle">視窗</h2><button class="btn2" onclick="closeModal()">關閉</button></div><div id="modalBody"></div></div></div>
 
-<script src="assets/js/math41-app.js"></script>
+<script src="assets/js/math42-app.js"></script>
 </body>
 </html>

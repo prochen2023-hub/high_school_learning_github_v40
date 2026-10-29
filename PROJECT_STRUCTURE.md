@@ -33,3 +33,9 @@
 
 學生學習資料目前仍存在瀏覽器 localStorage。
 題庫內容存在 JSON，可由 manager.html 編輯後匯出。
+
+
+4.2 additional math data:
+- data/math/concept_details.json
+- data/math/practice_bank.json
+- math-v41.html (previous student version)
