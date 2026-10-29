@@ -48,6 +48,39 @@
         "quick": "先抓 10 的次方，通常不用精算到最後一位。",
         "level": "基礎",
         "points": 1
+      },
+      {
+        "id": "u01_fo_sup1",
+        "type": "single",
+        "text": "下列何者為無理數？",
+        "options": [
+          "0.125",
+          "√2",
+          "3/7",
+          "−5"
+        ],
+        "answer": 1,
+        "explain": "√2 不能表示成兩整數之比。",
+        "quick": "有限小數、分數、整數都先排除。",
+        "unit": "u01",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "把 0.000048 寫成科學記號：______",
+        "answer": [
+          "4.8×10^-5",
+          "4.8*10^-5",
+          "4.8×10⁻⁵",
+          "4.8e-5"
+        ],
+        "explain": "小數點右移5位成4.8，所以乘10⁻⁵。",
+        "quick": "移幾位就決定10的指數。",
+        "unit": "u01",
+        "level": "基礎",
+        "id": "u01_fo_sup2",
+        "points": 1
       }
     ],
     "standard": [
@@ -112,6 +145,27 @@
         "explain": "關鍵不是外表有沒有根號，而是化簡後能不能寫成分數。",
         "quick": "有限小數、循環小數、整數、分數 → 有理數",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "下列哪些數一定是有理數？（複選）",
+        "options": [
+          "有限小數",
+          "循環小數",
+          "√3",
+          "整數"
+        ],
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "explain": "有限小數、循環小數與整數都可表示為兩整數之比。",
+        "quick": "能寫成 p/q 就是有理數。",
+        "unit": "u01",
+        "level": "標準",
+        "id": "u01_st_sup1",
         "points": 1
       }
     ],
@@ -183,6 +237,23 @@
         "quick": "先除係數，再處理 10 的次方。",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u01_li_sup1",
+        "type": "single",
+        "text": "下列何者為無理數？",
+        "options": [
+          "0.125",
+          "√2",
+          "3/7",
+          "−5"
+        ],
+        "answer": 1,
+        "explain": "√2 不能表示成兩整數之比。",
+        "quick": "有限小數、分數、整數都先排除。",
+        "unit": "u01",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -240,6 +311,40 @@
         "quick": "科學記號指數12 → 整數位數13。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u01_ch_sup1",
+        "type": "single",
+        "text": "下列何者為無理數？",
+        "options": [
+          "0.125",
+          "√2",
+          "3/7",
+          "−5"
+        ],
+        "answer": 1,
+        "explain": "√2 不能表示成兩整數之比。",
+        "quick": "有限小數、分數、整數都先排除。",
+        "unit": "u01",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u01_ch_sup2",
+        "type": "single",
+        "text": "某短影音觀看數 4,800,000 以科學記號表示為？",
+        "options": [
+          "4.8×10⁵",
+          "4.8×10⁶",
+          "48×10⁵",
+          "0.48×10⁷"
+        ],
+        "answer": 1,
+        "explain": "4,800,000=4.8×10⁶。",
+        "quick": "先看位數，7 位數代表 10⁶ 等級。",
+        "unit": "u01",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -292,6 +397,35 @@
         "quick": "不等式給你範圍；等號條件告訴你「真的能不能到那個值」。",
         "level": "基礎",
         "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "若 a,b>0 且 ab=25，則 a+b 的最小值為 ______。",
+        "answer": [
+          "10"
+        ],
+        "explain": "a+b≥2√ab=10。",
+        "quick": "固定積求和最小也可用AM-GM。",
+        "unit": "u02",
+        "level": "基礎",
+        "id": "u02_fo_sup1",
+        "points": 1
+      },
+      {
+        "type": "single",
+        "text": "1/√5 有理化後？",
+        "options": [
+          "√5/5",
+          "5/√5",
+          "1/5"
+        ],
+        "answer": 0,
+        "explain": "同乘 √5，得到 √5/5。",
+        "quick": "把分母的根號消掉，讓式子更容易比較、相加或套公式。",
+        "unit": "u02",
+        "points": 1,
+        "id": "u02_fo_sup2",
+        "level": "基礎"
       }
     ],
     "standard": [
@@ -353,6 +487,26 @@
         "explain": "根號內先拆完全平方數，才能看出同類項。",
         "quick": "先看有沒有公因式／乘法公式",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "若 a,b>0 且 a+b 固定，下列哪些敘述正確？（複選）",
+        "options": [
+          "a=b 時 ab 最大",
+          "兩數越懸殊，乘積越大",
+          "可用 AM-GM 判斷",
+          "不需正值條件也能直接套 AM-GM"
+        ],
+        "answer": [
+          0,
+          2
+        ],
+        "explain": "固定正和時，兩數相等乘積最大；AM-GM需注意條件。",
+        "quick": "固定和＋正數＋乘積最大 → AM-GM。",
+        "unit": "u02",
+        "level": "標準",
+        "id": "u02_st_sup1",
         "points": 1
       }
     ],
@@ -424,6 +578,23 @@
         "quick": "看到固定總和＋乘積最大 → 平均分。",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u02_li_sup1",
+        "type": "single",
+        "text": "若 a,b>0 且 a+b=12，ab 最大值為？",
+        "options": [
+          "24",
+          "30",
+          "36",
+          "48"
+        ],
+        "answer": 2,
+        "explain": "由算幾不等式，ab≤36。",
+        "quick": "固定和求積最大，兩數相等。",
+        "unit": "u02",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -480,6 +651,40 @@
         "quick": "固定乘積求和最小，也用AM-GM。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u02_ch_sup1",
+        "type": "single",
+        "text": "若 a,b>0 且 a+b=12，ab 最大值為？",
+        "options": [
+          "24",
+          "30",
+          "36",
+          "48"
+        ],
+        "answer": 2,
+        "explain": "由算幾不等式，ab≤36。",
+        "quick": "固定和求積最大，兩數相等。",
+        "unit": "u02",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u02_ch_sup2",
+        "type": "single",
+        "text": "若 x>0，x+9/x 的最小值？",
+        "options": [
+          "3",
+          "6",
+          "9",
+          "18"
+        ],
+        "answer": 1,
+        "explain": "由算幾不等式，x+9/x≥2√9=6。",
+        "quick": "x+k/x 類型直接想到 2√k。",
+        "unit": "u02",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -531,6 +736,36 @@
         "explain": "中心 -2，距離至少 5 → 左到 -7 以外、右到 3 以外。",
         "quick": "翻譯成：離中心至少這麼遠，所以答案跑到兩邊外側。",
         "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u03_fo_sup1",
+        "type": "single",
+        "text": "|x−3|<2 的解為？",
+        "options": [
+          "x<1",
+          "1<x<5",
+          "x>5",
+          "x<1或x>5"
+        ],
+        "answer": 1,
+        "explain": "x 距離 3 不到 2，所以 1<x<5。",
+        "quick": "先畫數線。",
+        "unit": "u03",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "解 |x−4|=7，兩解相加為 ______。",
+        "answer": [
+          "8"
+        ],
+        "explain": "x=11或−3，兩解和為8。",
+        "quick": "拆成 x−4=±7。",
+        "unit": "u03",
+        "level": "基礎",
+        "id": "u03_fo_sup2",
         "points": 1
       }
     ],
@@ -598,6 +833,23 @@
         "unit": "u03",
         "level": "標準",
         "points": 1
+      },
+      {
+        "id": "u03_st_sup1",
+        "type": "single",
+        "text": "若 |2x−1|=5，x=?",
+        "options": [
+          "3",
+          "−2",
+          "3或−2",
+          "2或−3"
+        ],
+        "answer": 2,
+        "explain": "2x−1=5 或 −5。",
+        "quick": "絕對值方程拆兩支。",
+        "unit": "u03",
+        "level": "標準",
+        "points": 1
       }
     ],
     "literacy": [
@@ -649,6 +901,40 @@
         "answer": 0,
         "explain": "|V−70|≤5，表示距離70不超過5，因此65到75都可。",
         "quick": "「誤差最多」先翻成絕對值距離≤。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u03_li_sup1",
+        "type": "single",
+        "text": "|x−3|<2 的解為？",
+        "options": [
+          "x<1",
+          "1<x<5",
+          "x>5",
+          "x<1或x>5"
+        ],
+        "answer": 1,
+        "explain": "x 距離 3 不到 2，所以 1<x<5。",
+        "quick": "先畫數線。",
+        "unit": "u03",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u03_li_sup2",
+        "type": "single",
+        "text": "若 |x+2|≤5，解集為？",
+        "options": [
+          "−7≤x≤3",
+          "x≤−7 或 x≥3",
+          "−3≤x≤7",
+          "x≥−2"
+        ],
+        "answer": 0,
+        "explain": "中心 −2，左右各 5。",
+        "quick": "先找中心，再往左右展開。",
+        "unit": "u03",
         "level": "素養",
         "points": 1
       }
@@ -725,6 +1011,23 @@
         "quick": "兩個距離相等 → 找中點。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u03_ch_sup1",
+        "type": "single",
+        "text": "若 |x+2|≤5，解集為？",
+        "options": [
+          "−7≤x≤3",
+          "x≤−7 或 x≥3",
+          "−3≤x≤7",
+          "x≥−2"
+        ],
+        "answer": 0,
+        "explain": "中心 −2，左右各 5。",
+        "quick": "先找中心，再往左右展開。",
+        "unit": "u03",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -775,6 +1078,40 @@
         "answer": 1,
         "explain": "500×1.1²=605。",
         "quick": "每次都乘同一個倍率，所以是指數成長。",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u04_fo_sup1",
+        "type": "single",
+        "text": "2^(3/2) =",
+        "options": [
+          "2√2",
+          "3√2",
+          "4",
+          "8"
+        ],
+        "answer": 0,
+        "explain": "2^(3/2)=√(2³)=2√2。",
+        "quick": "分母想根號，分子想次方。",
+        "unit": "u04",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u04_fo_sup2",
+        "type": "single",
+        "text": "log1000=",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "10"
+        ],
+        "answer": 2,
+        "explain": "10³=1000。",
+        "quick": "反問：10 的幾次方？",
+        "unit": "u04",
         "level": "基礎",
         "points": 1
       }
@@ -844,6 +1181,23 @@
         "level": "標準",
         "id": "u04_s4",
         "points": 1
+      },
+      {
+        "id": "u04_st_sup1",
+        "type": "single",
+        "text": "若 logx=2.5，則 x 介於？",
+        "options": [
+          "1與10",
+          "10與100",
+          "100與1000",
+          "1000與10000"
+        ],
+        "answer": 2,
+        "explain": "10²<x<10³。",
+        "quick": "只看對數整數部分。",
+        "unit": "u04",
+        "level": "標準",
+        "points": 1
       }
     ],
     "literacy": [
@@ -912,6 +1266,23 @@
         "answer": 1,
         "explain": "1000×1.1²=1210。",
         "quick": "連續百分比成長要連乘。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u04_li_sup1",
+        "type": "single",
+        "text": "2^(3/2) =",
+        "options": [
+          "2√2",
+          "3√2",
+          "4",
+          "8"
+        ],
+        "answer": 0,
+        "explain": "2^(3/2)=√(2³)=2√2。",
+        "quick": "分母想根號，分子想次方。",
+        "unit": "u04",
         "level": "素養",
         "points": 1
       }
@@ -986,6 +1357,23 @@
         "answer": 1,
         "explain": "27=3³，所以x+1=3，x=2。",
         "quick": "能同底先同底。",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u04_ch_sup1",
+        "type": "single",
+        "text": "若 log2≈0.3010，則 log20≈？",
+        "options": [
+          "0.3010",
+          "1.3010",
+          "2.3010",
+          "3.010"
+        ],
+        "answer": 1,
+        "explain": "log20=log2+1。",
+        "quick": "拆成 2×10。",
+        "unit": "u04",
         "level": "挑戰",
         "points": 1
       }
@@ -1139,6 +1527,27 @@
         "level": "標準",
         "id": "u05_s4",
         "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於直線 2x−3y+6=0，下列哪些正確？（複選）",
+        "options": [
+          "斜率為2/3",
+          "與4x−6y+1=0平行",
+          "通過原點",
+          "法向量可取(2,−3)"
+        ],
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "explain": "斜率2/3；A:B相同所以平行；原點不在直線上。",
+        "quick": "一般式可直接看斜率、法向量。",
+        "unit": "u05",
+        "level": "標準",
+        "id": "u05_st_sup1",
+        "points": 1
       }
     ],
     "literacy": [
@@ -1190,6 +1599,40 @@
         "answer": 1,
         "explain": "交點就是兩式同時成立：2x+1=−x+7 得 x=2,y=5。",
         "quick": "兩方案何時一樣＝兩線交點。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u05_li_sup1",
+        "type": "single",
+        "text": "通過(1,2)、(3,6)的直線斜率？",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": 1,
+        "explain": "m=(6−2)/(3−1)=2。",
+        "quick": "上升量/水平量。",
+        "unit": "u05",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u05_li_sup2",
+        "type": "single",
+        "text": "3x+4y−8=0 的斜率？",
+        "options": [
+          "3/4",
+          "−3/4",
+          "4/3",
+          "−4/3"
+        ],
+        "answer": 1,
+        "explain": "化為 y=−3/4x+2。",
+        "quick": "一般式看 −A/B。",
+        "unit": "u05",
         "level": "素養",
         "points": 1
       }
@@ -1270,6 +1713,23 @@
         "level": "挑戰",
         "id": "u05_c4",
         "points": 1
+      },
+      {
+        "id": "u05_ch_sup1",
+        "type": "single",
+        "text": "3x+4y−8=0 的斜率？",
+        "options": [
+          "3/4",
+          "−3/4",
+          "4/3",
+          "−4/3"
+        ],
+        "answer": 1,
+        "explain": "化為 y=−3/4x+2。",
+        "quick": "一般式看 −A/B。",
+        "unit": "u05",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -1322,6 +1782,39 @@
         "quick": "先翻譯關鍵詞，不要急著畫圖。",
         "level": "基礎",
         "points": 1
+      },
+      {
+        "id": "u06_fo_sup1",
+        "type": "single",
+        "text": "x+y≤4 的可行區域是否包含原點？",
+        "options": [
+          "是",
+          "否",
+          "在邊界上",
+          "無法判斷"
+        ],
+        "answer": 0,
+        "explain": "代入(0,0) 成立。",
+        "quick": "原點測試超快。",
+        "unit": "u06",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "single",
+        "text": "頂點 (0,0),(2,0),(0,5)，x+2y 最大？",
+        "options": [
+          "2",
+          "5",
+          "10"
+        ],
+        "answer": 2,
+        "explain": "代三點得0、2、10，所以最大10。",
+        "quick": "線性條件形成多邊形可行區域；線性目標的最大最小通常出現在頂點。",
+        "unit": "u06",
+        "points": 1,
+        "id": "u06_fo_sup2",
+        "level": "基礎"
       }
     ],
     "standard": [
@@ -1383,6 +1876,27 @@
         "explain": "聯立就是「同時成立」，所以一定取交集。",
         "quick": "各畫一個半平面",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於二元一次不等式圖形，下列哪些正確？（複選）",
+        "options": [
+          "≤通常包含邊界",
+          "<通常不包含邊界",
+          "測試點可判塗哪側",
+          "所有題都必須用原點"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "explain": "原點只是常用測試點，不一定能用。",
+        "quick": "原點能用就用，不能用換點。",
+        "unit": "u06",
+        "level": "標準",
+        "id": "u06_st_sup1",
         "points": 1
       }
     ],
@@ -1454,6 +1968,23 @@
         "quick": "可行點要同時通過所有限制。",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u06_li_sup1",
+        "type": "single",
+        "text": "x+y≤4 的可行區域是否包含原點？",
+        "options": [
+          "是",
+          "否",
+          "在邊界上",
+          "無法判斷"
+        ],
+        "answer": 0,
+        "explain": "代入(0,0) 成立。",
+        "quick": "原點測試超快。",
+        "unit": "u06",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -1511,6 +2042,40 @@
         "quick": "線性目標在多邊形頂點檢查。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u06_ch_sup1",
+        "type": "single",
+        "text": "聯立 x≥0、y≥0、x+y≤6 的可行區域為？",
+        "options": [
+          "第一象限內三角形",
+          "整個第一象限",
+          "圓形",
+          "一條線"
+        ],
+        "answer": 0,
+        "explain": "三條邊界圍成三角形。",
+        "quick": "先找三個頂點。",
+        "unit": "u06",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u06_ch_sup2",
+        "type": "single",
+        "text": "x+y≤4 的可行區域是否包含原點？",
+        "options": [
+          "是",
+          "否",
+          "在邊界上",
+          "無法判斷"
+        ],
+        "answer": 0,
+        "explain": "代入(0,0) 成立。",
+        "quick": "原點測試超快。",
+        "unit": "u06",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -1562,6 +2127,36 @@
         "explain": "3-4-5 直角三角形。",
         "quick": "先找圓心和半徑，再代標準式。",
         "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u07_fo_sup1",
+        "type": "single",
+        "text": "(x−2)²+(y+1)²=9 的圓心與半徑？",
+        "options": [
+          "(2,-1),3",
+          "(-2,1),3",
+          "(2,1),9",
+          "(-2,-1),9"
+        ],
+        "answer": 0,
+        "explain": "標準式直接讀。",
+        "quick": "括號反看，右邊開根號。",
+        "unit": "u07",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "圓 (x+1)²+(y−2)²=49 的半徑為 ______。",
+        "answer": [
+          "7"
+        ],
+        "explain": "r²=49。",
+        "quick": "右邊開根號。",
+        "unit": "u07",
+        "level": "基礎",
+        "id": "u07_fo_sup2",
         "points": 1
       }
     ],
@@ -1629,6 +2224,23 @@
         "level": "標準",
         "id": "u07_s4",
         "points": 1
+      },
+      {
+        "id": "u07_st_sup1",
+        "type": "single",
+        "text": "點(2,1)是否在 x²+y²−4x+2y−4=0 上？",
+        "options": [
+          "是",
+          "否",
+          "一定是圓心",
+          "資料不足"
+        ],
+        "answer": 1,
+        "explain": "代入不為0。",
+        "quick": "問點在不在圖形上，先代入。",
+        "unit": "u07",
+        "level": "標準",
+        "points": 1
       }
     ],
     "literacy": [
@@ -1682,6 +2294,40 @@
         "quick": "直徑題先找中點，再除2。",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u07_li_sup1",
+        "type": "single",
+        "text": "(x−2)²+(y+1)²=9 的圓心與半徑？",
+        "options": [
+          "(2,-1),3",
+          "(-2,1),3",
+          "(2,1),9",
+          "(-2,-1),9"
+        ],
+        "answer": 0,
+        "explain": "標準式直接讀。",
+        "quick": "括號反看，右邊開根號。",
+        "unit": "u07",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u07_li_sup2",
+        "type": "single",
+        "text": "x²+y²−6x+4y−3=0 的圓心為？",
+        "options": [
+          "(-3,2)",
+          "(3,-2)",
+          "(6,-4)",
+          "(3,2)"
+        ],
+        "answer": 1,
+        "explain": "圓心為(-D/2,-E/2)。",
+        "quick": "半係數反號。",
+        "unit": "u07",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -1730,6 +2376,40 @@
         "unit": "u07",
         "level": "挑戰",
         "id": "u07_s4_c",
+        "points": 1
+      },
+      {
+        "id": "u07_ch_sup1",
+        "type": "single",
+        "text": "x²+y²−6x+4y−3=0 的圓心為？",
+        "options": [
+          "(-3,2)",
+          "(3,-2)",
+          "(6,-4)",
+          "(3,2)"
+        ],
+        "answer": 1,
+        "explain": "圓心為(-D/2,-E/2)。",
+        "quick": "半係數反號。",
+        "unit": "u07",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u07_ch_sup2",
+        "type": "single",
+        "text": "圓心(-1,3)、半徑4 的圓為？",
+        "options": [
+          "(x-1)²+(y+3)²=16",
+          "(x+1)²+(y-3)²=16",
+          "(x+1)²+(y-3)²=4",
+          "(x-1)²+(y+3)²=4"
+        ],
+        "answer": 1,
+        "explain": "標準式直接代。",
+        "quick": "記住括號反號。",
+        "unit": "u07",
+        "level": "挑戰",
         "points": 1
       }
     ]
@@ -1782,6 +2462,38 @@
         "explain": "代入得 x²=0，只有一點 (0,5)。",
         "quick": "先判斷有交點，再聯立；不要把快判與求座標混在一起。",
         "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u08_fo_sup1",
+        "type": "single",
+        "text": "圓 x²+y²=25 與直線 x=5 的關係？",
+        "options": [
+          "相離",
+          "相切",
+          "交兩點",
+          "重合"
+        ],
+        "answer": 1,
+        "explain": "圓心到直線距離為5，等於半徑。",
+        "quick": "比 d 與 r。",
+        "unit": "u08",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "圓 x²+y²=25 與直線 y=3 的交點個數為 ______。",
+        "answer": [
+          "2",
+          "兩個",
+          "2個"
+        ],
+        "explain": "d=3<r=5，交兩點。",
+        "quick": "不必聯立。",
+        "unit": "u08",
+        "level": "基礎",
+        "id": "u08_fo_sup2",
         "points": 1
       }
     ],
@@ -1850,6 +2562,27 @@
         "quick": "『切』就是剛好碰到。",
         "unit": "u08",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "若圓心到直線距離d、半徑r，下列哪些正確？（複選）",
+        "options": [
+          "d<r交兩點",
+          "d=r相切",
+          "d>r相離",
+          "d=0必相切"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "explain": "d=0表示直線通過圓心，通常交兩點。",
+        "quick": "只記d與r三種比較。",
+        "unit": "u08",
+        "level": "標準",
+        "id": "u08_st_sup1",
         "points": 1
       }
     ],
@@ -1921,6 +2654,23 @@
         "quick": "只問關係先比d與r。",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u08_li_sup1",
+        "type": "single",
+        "text": "圓 x²+y²=25 與直線 x=5 的關係？",
+        "options": [
+          "相離",
+          "相切",
+          "交兩點",
+          "重合"
+        ],
+        "answer": 1,
+        "explain": "圓心到直線距離為5，等於半徑。",
+        "quick": "比 d 與 r。",
+        "unit": "u08",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -1978,6 +2728,40 @@
         "quick": "點線距離設成半徑。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u08_ch_sup1",
+        "type": "single",
+        "text": "圓 x²+y²=25 與直線 x=5 的關係？",
+        "options": [
+          "相離",
+          "相切",
+          "交兩點",
+          "重合"
+        ],
+        "answer": 1,
+        "explain": "圓心到直線距離為5，等於半徑。",
+        "quick": "比 d 與 r。",
+        "unit": "u08",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u08_ch_sup2",
+        "type": "single",
+        "text": "若巡邏路線可視為直線 x=6，而操場可視為 x²+y²=25，則？",
+        "options": [
+          "相離",
+          "相切",
+          "交兩點",
+          "通過圓心"
+        ],
+        "answer": 0,
+        "explain": "d=6>5。",
+        "quick": "先別聯立。",
+        "unit": "u08",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -2030,6 +2814,39 @@
         "quick": "直接套結構，不一定要做除法。",
         "level": "基礎",
         "points": 1
+      },
+      {
+        "id": "u09_fo_sup1",
+        "type": "single",
+        "text": "四次多項式除以二次式，餘式最高幾次？",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": 1,
+        "explain": "餘式次數小於除式次數2。",
+        "quick": "先看除式次數。",
+        "unit": "u09",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "single",
+        "text": "x²+5x+6=(x+2)(x+a)，a=?",
+        "options": [
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": 1,
+        "explain": "展開為 x²+(a+2)x+2a，比 x 係數得 a+2=5 → a=3。",
+        "quick": "兩邊是恆等式時，同次方項的係數必須一樣；可直接比較係數解未知數。",
+        "unit": "u09",
+        "points": 1,
+        "id": "u09_fo_sup2",
+        "level": "基礎"
       }
     ],
     "standard": [
@@ -2092,6 +2909,27 @@
         "quick": "取 a",
         "level": "標準",
         "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於多項式除法，下列哪些正確？（複選）",
+        "options": [
+          "餘式次數小於除式",
+          "四次除二次商最高二次",
+          "除一次式餘式可為一次式",
+          "綜合除法適合除以x−a"
+        ],
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "explain": "除一次式時餘式只能是常數。",
+        "quick": "先用次數預判。",
+        "unit": "u09",
+        "level": "標準",
+        "id": "u09_st_sup1",
+        "points": 1
       }
     ],
     "literacy": [
@@ -2143,6 +2981,40 @@
         "answer": 2,
         "explain": "x(x+1)(x+2) 的最高次來自 x·x·x=x³，所以是三次。",
         "quick": "只問最高次時先乘最高次項，不必整個展開。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u09_li_sup1",
+        "type": "single",
+        "text": "四次多項式除以二次式，餘式最高幾次？",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": 1,
+        "explain": "餘式次數小於除式次數2。",
+        "quick": "先看除式次數。",
+        "unit": "u09",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u09_li_sup2",
+        "type": "single",
+        "text": "x²−5x+6 的因式分解？",
+        "options": [
+          "(x−1)(x−6)",
+          "(x−2)(x−3)",
+          "(x+2)(x+3)",
+          "(x−2)(x+3)"
+        ],
+        "answer": 1,
+        "explain": "乘積6、和-5。",
+        "quick": "先找兩數。",
+        "unit": "u09",
         "level": "素養",
         "points": 1
       }
@@ -2202,6 +3074,40 @@
         "quick": "餘式次數 < 除式次數。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u09_ch_sup1",
+        "type": "single",
+        "text": "x²−5x+6 的因式分解？",
+        "options": [
+          "(x−1)(x−6)",
+          "(x−2)(x−3)",
+          "(x+2)(x+3)",
+          "(x−2)(x+3)"
+        ],
+        "answer": 1,
+        "explain": "乘積6、和-5。",
+        "quick": "先找兩數。",
+        "unit": "u09",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u09_ch_sup2",
+        "type": "single",
+        "text": "四次多項式除以二次式，餘式最高幾次？",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "answer": 1,
+        "explain": "餘式次數小於除式次數2。",
+        "quick": "先看除式次數。",
+        "unit": "u09",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -2252,6 +3158,40 @@
         "answer": 0,
         "explain": "f(2)=4+2k+2=0 → 2k=-6 → k=-3。",
         "quick": "把已知餘式翻成 f(a)=某值。",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u10_fo_sup1",
+        "type": "single",
+        "text": "f(x)=x²−3x+2，f(1)=",
+        "options": [
+          "-1",
+          "0",
+          "1",
+          "2"
+        ],
+        "answer": 1,
+        "explain": "直接代入。",
+        "quick": "不要猶豫。",
+        "unit": "u10",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u10_fo_sup2",
+        "type": "single",
+        "text": "若 f(2)=0，則哪一個必為因式？",
+        "options": [
+          "x+2",
+          "x-2",
+          "2x-1",
+          "x²-2"
+        ],
+        "answer": 1,
+        "explain": "因式定理。",
+        "quick": "看到根 2 就寫 x−2。",
+        "unit": "u10",
         "level": "基礎",
         "points": 1
       }
@@ -2324,6 +3264,27 @@
         "unit": "u10",
         "level": "標準",
         "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於餘式定理，下列哪些正確？（複選）",
+        "options": [
+          "除以x−a的餘式是f(a)",
+          "f(a)=0則x−a為因式",
+          "除以x²−1的餘式一定是常數",
+          "一次除式餘式常可直接代入"
+        ],
+        "answer": [
+          0,
+          1,
+          3
+        ],
+        "explain": "除以二次式的餘式最多一次，不一定常數。",
+        "quick": "一次除式最適合直接代值。",
+        "unit": "u10",
+        "level": "標準",
+        "id": "u10_st_sup1",
+        "points": 1
       }
     ],
     "literacy": [
@@ -2375,6 +3336,40 @@
         "answer": 1,
         "explain": "f(2)=0，所以依因式定理 x−2 一定是因式。",
         "quick": "模型在某輸入輸出0 → 對應 x−a 是因式。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u10_li_sup1",
+        "type": "single",
+        "text": "f(x)=x²−3x+2，f(1)=",
+        "options": [
+          "-1",
+          "0",
+          "1",
+          "2"
+        ],
+        "answer": 1,
+        "explain": "直接代入。",
+        "quick": "不要猶豫。",
+        "unit": "u10",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u10_li_sup2",
+        "type": "single",
+        "text": "若 f(2)=0，則哪一個必為因式？",
+        "options": [
+          "x+2",
+          "x-2",
+          "2x-1",
+          "x²-2"
+        ],
+        "answer": 1,
+        "explain": "因式定理。",
+        "quick": "看到根 2 就寫 x−2。",
+        "unit": "u10",
         "level": "素養",
         "points": 1
       }
@@ -2451,6 +3446,23 @@
         "quick": "二次除式的餘式可設ax+b，再用兩個已知值。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u10_ch_sup1",
+        "type": "single",
+        "text": "x³−8 除以 x−2 的餘式？",
+        "options": [
+          "0",
+          "2",
+          "4",
+          "8"
+        ],
+        "answer": 0,
+        "explain": "f(2)=0。",
+        "quick": "直接代。",
+        "unit": "u10",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -2502,6 +3514,36 @@
         "explain": "頂點 y=10，是最大高度。",
         "quick": "本質仍是找頂點，只是題目包了情境。",
         "level": "基礎",
+        "points": 1
+      },
+      {
+        "id": "u11_fo_sup1",
+        "type": "single",
+        "text": "y=(x−3)²+1 的頂點？",
+        "options": [
+          "(-3,1)",
+          "(3,1)",
+          "(1,3)",
+          "(3,-1)"
+        ],
+        "answer": 1,
+        "explain": "頂點式直接讀。",
+        "quick": "不用展開。",
+        "unit": "u11",
+        "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "y=x²−8x+7 的對稱軸為 x=______。",
+        "answer": [
+          "4"
+        ],
+        "explain": "x=−b/(2a)=4。",
+        "quick": "−b/2a。",
+        "unit": "u11",
+        "level": "基礎",
+        "id": "u11_fo_sup2",
         "points": 1
       }
     ],
@@ -2568,6 +3610,27 @@
         "quick": "先找 x=-b/2a。",
         "unit": "u11",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於 y=a(x−h)²+k，下列哪些正確？（複選）",
+        "options": [
+          "頂點(h,k)",
+          "a>0時最小值k",
+          "a<0時最大值k",
+          "對稱軸y=h"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "explain": "對稱軸應是x=h。",
+        "quick": "頂點式直接讀三件事。",
+        "unit": "u11",
+        "level": "標準",
+        "id": "u11_st_sup1",
         "points": 1
       }
     ],
@@ -2639,6 +3702,23 @@
         "unit": "u11",
         "level": "素養",
         "points": 1
+      },
+      {
+        "id": "u11_li_sup1",
+        "type": "single",
+        "text": "y=(x−3)²+1 的頂點？",
+        "options": [
+          "(-3,1)",
+          "(3,1)",
+          "(1,3)",
+          "(3,-1)"
+        ],
+        "answer": 1,
+        "explain": "頂點式直接讀。",
+        "quick": "不用展開。",
+        "unit": "u11",
+        "level": "素養",
+        "points": 1
       }
     ],
     "challenge": [
@@ -2696,6 +3776,40 @@
         "quick": "先乘−1再因式分解。",
         "level": "挑戰",
         "points": 1
+      },
+      {
+        "id": "u11_ch_sup1",
+        "type": "single",
+        "text": "y=-2(x+1)²+5 的最大值？",
+        "options": [
+          "-2",
+          "1",
+          "5",
+          "7"
+        ],
+        "answer": 2,
+        "explain": "開口向下，頂點 y=5。",
+        "quick": "a<0 看最大。",
+        "unit": "u11",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u11_ch_sup2",
+        "type": "single",
+        "text": "y=x²−6x+5 的最小值？",
+        "options": [
+          "-9",
+          "-4",
+          "4",
+          "5"
+        ],
+        "answer": 1,
+        "explain": "對稱軸 x=3，代回得 -4。",
+        "quick": "先找 x=-b/2a。",
+        "unit": "u11",
+        "level": "挑戰",
+        "points": 1
       }
     ]
   },
@@ -2747,6 +3861,34 @@
         "explain": "平方永遠非負，x=2 時等於0。",
         "quick": "偶重根兩側通常不換號，所以不能機械地每過一根就換號。",
         "level": "基礎",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "解 (x−3)(x+1)≤0，答案為 ______。",
+        "answer": [
+          "-1≤x≤3",
+          "−1≤x≤3"
+        ],
+        "explain": "取兩根中間且含端點。",
+        "quick": "零點＋號線。",
+        "unit": "u12",
+        "level": "基礎",
+        "id": "u12_fo_sup1",
+        "points": 1
+      },
+      {
+        "type": "fill",
+        "text": "若 f(x)=x³，則 f(-2)=______。",
+        "answer": [
+          "-8",
+          "−8"
+        ],
+        "explain": "(-2)³=−8。",
+        "quick": "奇次方保留負號。",
+        "unit": "u12",
+        "level": "基礎",
+        "id": "u12_fo_sup2",
         "points": 1
       }
     ],
@@ -2814,6 +3956,27 @@
         "quick": "看最右端走向。",
         "unit": "u12",
         "level": "標準",
+        "points": 1
+      },
+      {
+        "type": "multi",
+        "text": "關於多項式不等式號線，下列哪些正確？（複選）",
+        "options": [
+          "先找零點",
+          "偶重根通常不換號",
+          "奇重根通常換號",
+          "所有根都一定排除"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ],
+        "explain": "是否包含根取決於嚴格或非嚴格不等號。",
+        "quick": "零點、重數、端點三步。",
+        "unit": "u12",
+        "level": "標準",
+        "id": "u12_st_sup1",
         "points": 1
       }
     ],
@@ -2883,6 +4046,23 @@
         "answer": 1,
         "explain": "f(−x)=−x³=−f(x)，因此具有原點對稱。",
         "quick": "先直接代−x判對稱。",
+        "level": "素養",
+        "points": 1
+      },
+      {
+        "id": "u12_li_sup1",
+        "type": "single",
+        "text": "(x−1)(x+2)>0 的解？",
+        "options": [
+          "-2<x<1",
+          "x<-2或x>1",
+          "x>-2",
+          "x<1"
+        ],
+        "answer": 1,
+        "explain": "零點外側為正。",
+        "quick": "不展開，畫號線。",
+        "unit": "u12",
         "level": "素養",
         "points": 1
       }
@@ -2957,6 +4137,23 @@
         "answer": 0,
         "explain": "平方因式非負，除x=1外不改變符號；要整體負只需x+2<0，所以x<−2。",
         "quick": "偶重根不換號。",
+        "level": "挑戰",
+        "points": 1
+      },
+      {
+        "id": "u12_ch_sup1",
+        "type": "single",
+        "text": "(x−1)(x+2)>0 的解？",
+        "options": [
+          "-2<x<1",
+          "x<-2或x>1",
+          "x>-2",
+          "x<1"
+        ],
+        "answer": 1,
+        "explain": "零點外側為正。",
+        "quick": "不展開，畫號線。",
+        "unit": "u12",
         "level": "挑戰",
         "points": 1
       }

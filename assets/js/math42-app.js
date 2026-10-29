@@ -31,7 +31,7 @@ function modeUnlocked(id,mode){const tc=typeCount(id),d=CONCEPTS[id]||{},min=d.m
 function renderSidebar(){
  $("sideUnits").innerHTML=[0,1,2].map(ex=>`<div><div class="examTitle">▣ ${examName(ex)}</div>${UNITS.filter(u=>u.exam===ex).map(u=>{const p=mastery(u.id),st=unitStars(u.id);return `<div class="unitLink ${u.id===currentUnit?"on":""}" onclick="selectUnit('${u.id}')"><span class="dot ${masteryClass(p)}"></span><span class="unitName">${u.title.replace(/^\d+\.\s*/,"")}<small class="sideStars">${starText(st)}</small></span><span class="unitPct">${p?`${p}%`:""}</span></div>`}).join("")}</div>`).join("")
 }
-function selectUnit(id){currentUnit=id;currentTab="visual";practiceMode="foundation";document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.tab==="visual"));renderSidebar();renderUnitTop();renderLesson();refreshPractice();renderBoost();window.scrollTo({top:84,behavior:"smooth"})}
+function selectUnit(id){closeMobileNav();currentUnit=id;currentTab="visual";practiceMode="foundation";document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.tab==="visual"));renderSidebar();renderUnitTop();renderLesson();refreshPractice();renderBoost();window.scrollTo({top:84,behavior:"smooth"})}
 function renderUnitTop(){
  const u=UNITS.find(x=>x.id===currentUnit),l=LESSONS[currentUnit],p=mastery(currentUnit),st=unitStars(currentUnit);
  $("unitExam").textContent=examName(u.exam);$("unitTitle").textContent=u.title;$("unitMission").textContent=l.mission;$("masteryPct").textContent=p+"%";
@@ -239,4 +239,22 @@ function gradeExam(code){
 }
 function closeModal(){$("modal").classList.remove("open")}
 window.addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+
+function toggleMobileNav(){
+ const s=document.querySelector(".sidebar"),shade=document.getElementById("mobileShade"),btn=document.getElementById("mobileMenuBtn");
+ if(!s)return;
+ const open=!s.classList.contains("mobileOpen");
+ s.classList.toggle("mobileOpen",open);
+ shade?.classList.toggle("show",open);
+ if(btn){btn.setAttribute("aria-expanded",open?"true":"false");btn.setAttribute("aria-label",open?"關閉章節選單":"開啟章節選單")}
+ document.body.style.overflow=open?"hidden":"";
+}
+function closeMobileNav(){
+ const s=document.querySelector(".sidebar"),shade=document.getElementById("mobileShade"),btn=document.getElementById("mobileMenuBtn");
+ s?.classList.remove("mobileOpen");shade?.classList.remove("show");
+ if(btn){btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","開啟章節選單")}
+ document.body.style.overflow="";
+}
+window.addEventListener("resize",()=>{if(window.innerWidth>820)closeMobileNav()});
+
 init();
