@@ -1,5 +1,5 @@
 {
-  "version": "3.4",
+  "version": "4.1",
   "subject": "math",
   "grade": "10",
   "semester": "1",
@@ -45,7 +45,12 @@
     "error_analysis",
     "mastery_estimation",
     "spaced_review",
-    "similar_questions"
+    "similar_questions",
+    "first_learning_mode",
+    "type_lesson_library",
+    "worked_examples",
+    "micro_checks"
   ],
-  "diagram_data": "data/math/diagrams.json"
+  "diagram_data": "data/math/diagrams.json",
+  "type_lessons": "data/math/type_lessons.json"
 }

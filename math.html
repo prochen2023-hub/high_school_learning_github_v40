@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="高一上數學4.0視覺互動版：適合中下程度往中上提升，圖像理解、快解、闖關、正式段考與錯因補強。">
-<title>高一上數學 4.0｜視覺互動學習版</title>
+<title>高一上數學 4.1｜第一次學也看得懂</title>
 <link rel="stylesheet" href="assets/css/math40.css">
 </head>
 <body>
 <div class="app">
 <header class="topbar">
-  <div class="brand"><div class="brandMark">∑</div><div><h1>高中數學 4.0</h1><small>看懂 → 會做 → 做快 → 穩定得分</small></div></div>
+  <div class="brand"><div class="brandMark">∑</div><div><h1>高中數學 4.1</h1><small>先學懂 → 認題型 → 跟著做 → 自己做</small></div></div>
   <nav class="nav">
     <button class="on" onclick="scrollToTop()">首頁</button>
     <button onclick="showMap()">心智圖</button>
@@ -43,10 +43,11 @@
       <div class="unitRow"><div><div class="eyebrow" id="unitExam">第一次段考</div><h2 id="unitTitle">載入中…</h2><div class="mission" id="unitMission"></div></div>
       <div class="masteryPill"><span>本單元掌握</span><br><b id="masteryPct">0%</b></div></div>
       <div class="tabs">
-        <button class="tab on" data-tab="visual">圖像理解</button>
-        <button class="tab" data-tab="quick">快解＆陷阱</button>
-        <button class="tab" data-tab="example">例題拆解</button>
-        <button class="tab" data-tab="prior">舊知識串聯</button>
+        <button class="tab on" data-tab="visual">① 先學懂</button>
+        <button class="tab" data-tab="types">② 題型教學</button>
+        <button class="tab" data-tab="quick">③ 快解＆陷阱</button>
+        <button class="tab" data-tab="example">④ 綜合例題</button>
+        <button class="tab" data-tab="prior">⑤ 舊知識串聯</button>
       </div>
     </section>
 
@@ -56,7 +57,7 @@
   <aside class="right">
     <section class="practice">
       <div class="practiceHead">
-        <div class="practiceHeadRow"><h3>🎯 隨堂闖關</h3><button class="btn2" onclick="refreshPractice()">換一組</button></div>
+        <div class="practiceHeadRow"><h3>🎯 學懂後再闖關</h3><button class="btn2" onclick="refreshPractice()">換一組</button></div>
         <div class="modePills"><button class="modePill on">基礎</button><button class="modePill">標準</button><button class="modePill">素養</button><button class="modePill">挑戰</button></div>
       </div>
       <div class="qwrap" id="practiceArea"></div>
@@ -72,6 +73,6 @@
 
 <div class="modal" id="modal"><div class="modalBox"><div class="modalHead"><h2 id="modalTitle">視窗</h2><button class="btn2" onclick="closeModal()">關閉</button></div><div id="modalBody"></div></div></div>
 
-<script src="assets/js/math40-app.js"></script>
+<script src="assets/js/math41-app.js"></script>
 </body>
 </html>
