@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="高一上數學4.4：互動直覺學習、闖關式教學與生活應用，適合中下程度往中上提升，包含深度概念、圖像題型、四級練習、星級獎勵與正式段考。">
+<title>高一上數學 4.4｜互動闖關學習版</title>
+<link rel="stylesheet" href="assets/css/math44-v44.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <button class="mobileMenuBtn" id="mobileMenuBtn" type="button" aria-label="開啟章節選單" aria-expanded="false" onclick="toggleMobileNav()">☰<span>章節</span></button>
+  <div class="brand"><div class="brandMark">∑</div><div><h1>高中數學 4.4</h1><small>先玩懂 → 看穿題型 → 畫圖破題 → 四級闖關 → 拿星</small></div></div>
+  <nav class="nav">
+    <button class="on" onclick="scrollToTop()">首頁</button>
+    <button onclick="showMap()">心智圖</button>
+    <button onclick="showExamPicker()">正式模考</button>
+    <button onclick="focusWeak()">弱點補強</button>
+    <a href="manager.html">題庫管理</a>
+    <a href="math-v41.html">4.1舊版</a>
+  </nav>
+  <input class="searchTop" id="topSearch" placeholder="搜尋單元、概念、題目…">
+  <div class="profile"><div class="avatar">G1</div><div><b style="font-size:12px">高一上</b><div style="font-size:10px;color:#b8c8e7">目標：中上</div></div></div>
+</header>
+
+<div class="mobileShade" id="mobileShade" onclick="closeMobileNav()" aria-hidden="true"></div>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sideHero"><b>📐 高一上數學</b><p>不用一次念很多。先把「看不懂」變成「知道在幹嘛」，再追速度。</p></div>
+    <div id="sideUnits"></div>
+  </aside>
+
+  <main class="main">
+    <section class="hero">
+      <img src="assets/img/math34_hero_concept.png" alt="夜讀風格的高中數學互動學習介面">
+      <div class="heroCopy">
+        <div class="crumb">高一上數學 ＞ 視覺互動學習</div>
+        <h2 id="heroTitle">先看懂，再開始算</h2>
+        <p id="heroHook">公式先不要急著背。這一版會先用圖把概念講清楚，再把步驟縮成考場能用的方法。</p>
+        <div class="heroStats"><span class="heroStat" id="heroMastery">掌握度 —</span><span class="heroStat" id="heroXp">XP 0</span><span class="heroStat" id="totalStars">全站星星 0/36</span></div>
+      </div>
+    </section>
+
+    <section class="unitTop">
+      <div class="unitRow"><div><div class="eyebrow" id="unitExam">第一次段考</div><h2 id="unitTitle">載入中…</h2><div class="mission" id="unitMission"></div></div>
+      <div class="masteryPill"><span>本單元掌握</span><br><b id="masteryPct">0%</b><div class="starDisplay" id="starDisplay">☆☆☆</div></div></div>
+      <div class="tabs">
+        <button class="tab on" data-tab="visual">① 先學懂</button>
+        <button class="tab" data-tab="types">② 題型教學</button>
+        <button class="tab" data-tab="quick">③ 快解＆陷阱</button>
+        <button class="tab" data-tab="example">④ 綜合例題</button>
+        <button class="tab" data-tab="prior">⑤ 舊知識串聯</button>
+      </div>
+    </section>
+
+    <section class="lessonPane" id="lessonPane"></section>
+  </main>
+
+  <aside class="right">
+    <section class="practice">
+      <div class="practiceHead">
+        <div class="practiceHeadRow"><h3>🎯 學懂後再闖關</h3><button class="btn2" onclick="refreshPractice()">換一組</button></div>
+        <div class="modePills"><button class="modePill on" data-mode="foundation" onclick="setPracticeMode('foundation')">基礎</button><button class="modePill" data-mode="standard" onclick="setPracticeMode('standard')">標準</button><button class="modePill" data-mode="literacy" onclick="setPracticeMode('literacy')">素養</button><button class="modePill" data-mode="challenge" onclick="setPracticeMode('challenge')">挑戰</button></div>
+      </div>
+      <div class="qwrap" id="practiceArea"></div>
+    </section>
+
+    <div class="boost">
+      <div class="boostCard"><h3>⏱️ 今日10分鐘</h3><ol id="boostList"></ol><button class="btn" style="margin-top:8px" onclick="startBoost()">開始補強</button></div>
+      <div class="boostCard"><h3>學習戰力</h3><div class="xpRing"><span id="xpRingText">XP<br>0</span></div></div>
+    </div>
+  </aside>
+</div>
+</div>
+<div class="starToast" id="starToast" role="status" aria-live="polite"></div>
+
+<div class="modal" id="modal"><div class="modalBox"><div class="modalHead"><h2 id="modalTitle">視窗</h2><button class="btn2" onclick="closeModal()">關閉</button></div><div id="modalBody"></div></div></div>
+
+<script src="assets/js/math44-app-v44.js"></script>
+</body>
+</html>
