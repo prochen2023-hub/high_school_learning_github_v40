@@ -1,0 +1,15 @@
+
+.accountOverlay{display:none;position:fixed;inset:0;z-index:12000;background:rgba(5,14,38,.68);backdrop-filter:blur(5px);padding:18px;overflow:auto}
+.accountOverlay.show{display:grid;place-items:center}.accountModalOpen{overflow:hidden}
+.accountDialog{width:min(430px,100%);position:relative;background:#fff;color:#17233d;border-radius:22px;padding:24px;box-shadow:0 28px 90px rgba(0,0,0,.34)}
+.accountClose{position:absolute;right:12px;top:10px;border:0;background:#eef2f8;width:34px;height:34px;border-radius:50%;font-size:22px;cursor:pointer}
+.accountLogo{width:50px;height:50px;border-radius:15px;background:linear-gradient(145deg,#477bf3,#8868ed);display:grid;place-items:center;color:#fff;font-size:26px;font-weight:900}
+.accountDialog h2{margin:12px 0 5px}.accountLead{font-size:13px;line-height:1.65;color:#65738b;margin:0 0 13px}
+#accountLoginForm{display:grid;gap:10px}#accountLoginForm label{display:grid;gap:5px;font-size:12px;font-weight:800;color:#44536d}
+#accountLoginForm input{width:100%;min-height:46px;border:1px solid #d6dfed;border-radius:11px;padding:10px 11px;font-size:16px}
+.accountPrimary{min-height:47px;border:0;border-radius:11px;background:#244eaf;color:#fff;font-weight:900;cursor:pointer}
+.accountPrivacy{margin-top:12px;padding:9px 10px;background:#f5f7fb;border-radius:10px;font-size:11px;line-height:1.6;color:#6a768a}
+.accountSigned{display:grid;gap:6px;background:#f5f8ff;border:1px solid #dce5f5;border-radius:13px;padding:12px;margin-bottom:10px}
+.accountSigned b{font-size:18px}.accountSigned span,.accountSigned small{color:#68758d}.accountSigned button{margin-top:5px;min-height:41px;border:1px solid #ccd7ea;background:#fff;border-radius:9px;cursor:pointer;color:#41567d}
+.accountSuccess,.accountError{border-radius:9px;padding:9px;margin-bottom:9px;font-size:12px}.accountSuccess{background:#eaf9f1;color:#176e50}.accountError{background:#fff0f1;color:#9a3f48}
+.profile.accountProfile{cursor:pointer;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:5px 8px}.profile.accountProfile:hover{background:rgba(255,255,255,.08)}

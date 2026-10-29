@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>版主進度面板｜高中攻克基地 4.6</title>
+<link rel="stylesheet" href="assets/css/account.css">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#f3f6fb;color:#18243e}
+.top{background:#102554;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.top h1{margin:0;font-size:20px}.top a,.top button{color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:9px;padding:8px 10px;text-decoration:none;cursor:pointer}
+.wrap{max-width:1180px;margin:18px auto;padding:0 12px}.notice{background:#fff8e8;border:1px solid #efd7a2;border-radius:13px;padding:12px;font-size:12px;line-height:1.65;color:#745824}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}.stat{background:#fff;border:1px solid #dce5f2;border-radius:13px;padding:12px}.stat b{display:block;font-size:24px}.stat small{color:#718096}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.toolbar button,.toolbar label{border:1px solid #ced9eb;background:#fff;border-radius:9px;padding:8px 10px;font-size:12px;cursor:pointer}.toolbar input[type=file]{display:none}
+.card{background:#fff;border:1px solid #dce5f2;border-radius:15px;margin:9px 0;overflow:hidden}.head{display:grid;grid-template-columns:1.3fr 1fr repeat(4,.6fr);gap:8px;padding:12px;align-items:center}.name b{font-size:15px}.name small{display:block;color:#718096;margin-top:3px}.metric b{display:block;font-size:15px}.metric small{font-size:10px;color:#7b879b}
+details{border-top:1px solid #e7edf5}summary{cursor:pointer;padding:9px 12px;font-size:12px;color:#4461ae}.units{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;padding:0 12px 12px}.unit{border:1px solid #e0e7f1;border-radius:10px;padding:8px}.unitTop{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:800}.bar{height:7px;background:#e9eef6;border-radius:99px;margin-top:6px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#4978ed,#35ad7b)}
+.empty{background:#fff;border:1px dashed #cfd9e7;border-radius:14px;padding:25px;text-align:center;color:#748198}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.head{grid-template-columns:1.4fr .8fr .8fr}.head .metric:nth-of-type(n+4){display:none}.units{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div><h1>版主進度面板</h1><div style="font-size:11px;color:#bfcdea">4.6 本機帳號試行版</div></div><div><a href="index.html">網站首頁</a> <a href="math.html">學生版</a></div></header>
+<main class="wrap">
+<div class="notice"><b>目前的資料範圍：</b>這一版使用瀏覽器 localStorage，所以這裡只看得到「此瀏覽器曾登入的帳號」。網站更新版本不會清除，但跨手機／跨電腦的集中監看需要下一階段接雲端資料庫。帳號結構已預留密碼欄位與雲端同步位置。</div>
+<div class="stats"><div class="stat"><b id="memberCount">0</b><small>成員</small></div><div class="stat"><b id="activeCount">0</b><small>有數學進度</small></div><div class="stat"><b id="totalXp">0</b><small>累計 XP</small></div><div class="stat"><b id="totalStars">0</b><small>累計星星</small></div></div>
+<div class="toolbar"><button onclick="exportData()">匯出帳號進度備份</button><label>匯入備份<input id="importFile" type="file" accept=".json" onchange="importData(this)"></label><button onclick="location.reload()">重新整理</button></div>
+<div id="members"></div>
+</main>
+<script src="assets/js/account-core.js"></script>
+<script>
+let UNITS=[];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+function mastery(p,id){const a=p?.attempts?.[id]||{c:0,t:0};let v=a.t?Math.round(a.c/a.t*85):0;if(p?.completed?.[id])v+=10;if(p?.uncertain?.[id])v-=5;return Math.max(0,Math.min(100,v))}
+function fmt(t){if(!t)return "—";try{return new Date(t).toLocaleString("zh-TW")}catch(e){return t}}
+function render(){
+ const accounts=HSLAccount.allAccounts(), box=document.getElementById("members");
+ let active=0,xp=0,stars=0;
+ const cards=accounts.map(a=>{
+  const p=a.progress?.math||null;if(p)active++;
+  const axp=p?.xp||0, astars=Object.values(p?.stars||{}).reduce((s,n)=>s+(Number(n)||0),0);
+  xp+=axp;stars+=astars;
+  const mastered=Object.values(p?.typeMastered||{}).reduce((s,o)=>s+Object.values(o||{}).filter(Boolean).length,0);
+  const attempts=Object.values(p?.attempts||{}).reduce((s,o)=>s+(o?.t||0),0);
+  const units=UNITS.map(u=>{const m=mastery(p,u.id),st=p?.stars?.[u.id]||0;return `<div class="unit"><div class="unitTop"><span>${esc(u.title)}</span><span>${"★".repeat(st)}${"☆".repeat(3-st)} ${m}%</span></div><div class="bar"><div class="fill" style="width:${m}%"></div></div></div>`}).join("");
+  return `<article class="card"><div class="head"><div class="name"><b>${esc(a.displayName)}</b><small>@${esc(a.id)}｜最後活動 ${fmt(a.lastActivityAt)}</small></div><div class="metric"><b>${axp}</b><small>XP</small></div><div class="metric"><b>${astars}/36</b><small>星星</small></div><div class="metric"><b>${mastered}</b><small>題型完成</small></div><div class="metric"><b>${attempts}</b><small>答題紀錄</small></div><div class="metric"><b>${p?"有":"無"}</b><small>進度</small></div></div><details><summary>查看 12 單元進度</summary><div class="units">${units}</div></details></article>`
+ }).join("");
+ document.getElementById("memberCount").textContent=accounts.length;document.getElementById("activeCount").textContent=active;document.getElementById("totalXp").textContent=xp;document.getElementById("totalStars").textContent=stars;
+ box.innerHTML=cards||`<div class="empty">目前尚無帳號。請先在學生版用帳號登入一次。</div>`
+}
+function exportData(){const blob=new Blob([HSLAccount.exportAll()],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="high-school-learning-accounts-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+async function importData(inp){if(!inp.files?.[0])return;try{const txt=await inp.files[0].text();const n=HSLAccount.importAll(txt);alert(`已匯入 ${n} 個帳號`);render()}catch(e){alert(e.message)}inp.value=""}
+fetch("data/math/units.json").then(r=>r.json()).then(x=>{UNITS=x;render()}).catch(()=>render());
+</script>
+</body></html>
