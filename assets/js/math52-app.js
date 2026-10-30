@@ -1,6 +1,6 @@
 
 let UNITS=[],LESSONS={},TYPELESSONS={},CONCEPTS={},PRACTICE={},MAPS={},QUESTFLOW={},TESTS={},RANGES=[],currentUnit="u03",currentTab="visual",practiceSet=[],practiceIndex=0,practiceMode="foundation",viewMode="quest",questReviewId=null,questCursor=null;
-const stateKey="math52_state",legacyStateKey="math51_state",legacyStateKey2="math50_state";
+const stateKey="math53_state",legacyStateKey="math52_state",legacyStateKey2="math51_state";
 const $=id=>document.getElementById(id);
 function blankState(){return {xp:0,attempts:{},completed:{},uncertain:{},typeMastered:{},modeAttempts:{},stars:{},rewardedStars:{},questBoss:{}}}
 function loadState(){
@@ -336,6 +336,7 @@ function visualPane(u,l){
  </div>
  <div class="sectionHead compactHead"><span class="num purple">+</span><div><h3>再玩一個小實驗</h3><p>同一個觀念換一個角度，看懂會更穩。</p></div></div>
  ${secondaryLab(currentUnit)}
+ ${unitDeepDive(currentUnit)}
  ${genericHint}
  ${unitHint}
  <div class="sectionHead"><span class="num blue">2</span><div><h3>為什麼會這樣？</h3><p>把結論拆回圖像與定義，讓公式有來處。</p></div></div>
@@ -374,8 +375,8 @@ function advancedTypeVisual(id){
   u08t4:`<svg viewBox="0 0 620 220"><circle cx="270" cy="110" r="70" fill="#eef4ff" stroke="#3478f6" stroke-width="3"/><line x1="340" y1="35" x2="340" y2="185" stroke="#ff6f9a" stroke-width="4"/><line x1="270" y1="110" x2="340" y2="110" stroke="#7c67ef" stroke-dasharray="6 5" stroke-width="3"/><text x="365" y="100" font-size="18">d = r</text><text x="365" y="130" font-size="15">相切參數題</text></svg>`,
   u09t4:`<svg viewBox="0 0 620 210"><text x="70" y="65" font-size="20">x²+3x+2 = (x+1)(x+a)+b</text><text x="80" y="115" font-size="17">x項：a+1 = 3 → a=2</text><text x="80" y="150" font-size="17">常數：a+b = 2 → b=0</text><text x="345" y="185" font-size="14" fill="#66748c">恆等式 → 同次方係數相等</text></svg>`,
   u10t4:`<svg viewBox="0 0 620 220"><rect x="55" y="60" width="150" height="90" rx="15" fill="#eef4ff"/><text x="80" y="105" font-size="22">f(1)=0</text><text x="75" y="135" font-size="15">找到零點 1</text><path d="M225 105 L345 105" stroke="#3478f6" stroke-width="4"/><polygon points="345,105 330,96 330,114" fill="#3478f6"/><rect x="365" y="60" width="190" height="90" rx="15" fill="#eefaf5"/><text x="395" y="102" font-size="21">先除掉 (x−1)</text><text x="405" y="132" font-size="15">高次式降一階</text></svg>`,
-  u11t4:`<svg viewBox="0 0 620 240"><line x1="60" y1="175" x2="560" y2="175" stroke="#8795aa"/><path d="M145 45 Q310 260 475 45" fill="none" stroke="#3478f6" stroke-width="4"/><circle cx="210" cy="175" r="7" fill="#ff6f9a"/><circle cx="410" cy="175" r="7" fill="#ff6f9a"/><text x="205" y="205" font-size="13">根1</text><text x="405" y="205" font-size="13">根2</text><text x="190" y="32" font-size="17">Δ&gt;0 → 與 x 軸交兩點</text></svg>`,
-  u12t4:`<svg viewBox="0 0 620 240"><line x1="60" y1="125" x2="560" y2="125" stroke="#8795aa"/><path d="M70 65 C150 65 170 185 250 185 S360 65 440 65 S510 185 555 185" fill="none" stroke="#3478f6" stroke-width="4"/><text x="95" y="55" font-size="15" fill="#27a66f">f(x)&gt;0</text><text x="245" y="210" font-size="15" fill="#d45454">f(x)&lt;0</text><text x="420" y="55" font-size="15" fill="#27a66f">看圖在 x 軸上／下</text></svg>`
+  u11t4_legacy:`<svg viewBox="0 0 620 240"><line x1="60" y1="175" x2="560" y2="175" stroke="#8795aa"/><path d="M145 45 Q310 260 475 45" fill="none" stroke="#3478f6" stroke-width="4"/><circle cx="210" cy="175" r="7" fill="#ff6f9a"/><circle cx="410" cy="175" r="7" fill="#ff6f9a"/><text x="205" y="205" font-size="13">根1</text><text x="405" y="205" font-size="13">根2</text><text x="190" y="32" font-size="17">Δ&gt;0 → 與 x 軸交兩點</text></svg>`,
+  u12t4_legacy:`<svg viewBox="0 0 620 240"><line x1="60" y1="125" x2="560" y2="125" stroke="#8795aa"/><path d="M70 65 C150 65 170 185 250 185 S360 65 440 65 S510 185 555 185" fill="none" stroke="#3478f6" stroke-width="4"/><text x="95" y="55" font-size="15" fill="#27a66f">f(x)&gt;0</text><text x="245" y="210" font-size="15" fill="#d45454">f(x)&lt;0</text><text x="420" y="55" font-size="15" fill="#27a66f">看圖在 x 軸上／下</text></svg>`
  }; return V[id]||""
 }
 function typeCard(t,i){
@@ -430,8 +431,8 @@ function secondaryLab(unit=currentUnit){
   u08:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜把直線推近圓</b><span>看 0 / 1 / 2 個交點</span></div><div id="ml_u08_box">${lineCircleMiniSvg(6)}</div><label class="labSlider">直線 x = <span id="ml_u08_v">6</span><input type="range" min="-7" max="7" step="1" value="6" oninput="updateLineCircleMini(this.value)"></label></div>`,
   u09:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜乘回去看結構</b><span>(x+1)(x+a)</span></div><div id="ml_u09_box">${divisionStructureSvg(2)}</div><label class="labSlider">a = <span id="ml_u09_v">2</span><input type="range" min="-5" max="5" step="1" value="2" oninput="updateDivisionStructure(this.value)"></label></div>`,
   u10:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜直接代入，就知道餘式</b><span>f(x)=x²−3x+2</span></div><div id="ml_u10_box">${remainderEvalSvg(1)}</div><label class="labSlider">代入 a = <span id="ml_u10_v">1</span><input type="range" min="-3" max="5" step="1" value="1" oninput="updateRemainderEval(this.value)"></label></div>`,
-  u11:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜頂點移動，整條拋物線跟著走</b><span>y=(x-h)²+k</span></div><div id="ml_u11_box">${vertexLabSvg(0,0)}</div><div class="dualSliders"><label>h=<span id="ml_u11_h_v">0</span><input id="ml_u11_h" type="range" min="-4" max="4" value="0" oninput="updateVertexLab()"></label><label>k=<span id="ml_u11_k_v">0</span><input id="ml_u11_k" type="range" min="-4" max="4" value="0" oninput="updateVertexLab()"></label></div></div>`,
-  u12:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜零點把數線切成區間</b><span>拖測試點看正負</span></div><div id="ml_u12_box">${signProbeSvg(-2,2,0)}</div><label class="labSlider">測試 x = <span id="ml_u12_v">0</span><input type="range" min="-5" max="5" step=".5" value="0" oninput="updateSignProbe(this.value)"></label></div>`
+  u11:()=>`<div class="microLab"><div class="microLabHead"><b>第二層｜固定 a=1，只看 h、k 搬頂點</b><span>y=(x-h)²+k</span></div><div class="parameterRoles mini"><span><b>h</b> 左右搬</span><span><b>k</b> 上下搬</span><span><b>x</b> 仍是輸入</span><span><b>y</b> 仍是輸出</span></div><div id="ml_u11_box">${vertexLabSvg(0,0)}</div><div class="dualSliders"><label>h = <span id="ml_u11_h_v">0</span><input id="ml_u11_h" type="range" min="-4" max="4" value="0" oninput="updateVertexLab()"></label><label>k = <span id="ml_u11_k_v">0</span><input id="ml_u11_k" type="range" min="-4" max="4" value="0" oninput="updateVertexLab()"></label></div></div>`,
+  u12:()=>`<div class="microLab"><div class="microLabHead"><b>第二個小實驗｜重根：穿過還是碰回？</b><span>比較一重根與二重根</span></div><div id="ml_u12_box">${multiplicityLabSvg("double")}</div><div class="modeButtons"><button class="on" onclick="setMultiplicityMode('double',this)">二重根：不換號</button><button onclick="setMultiplicityMode('single',this)">一重根：換號</button></div></div>`
  };
  return (labs[unit]||(()=>''))()
 }
@@ -453,10 +454,132 @@ function divisionStructureSvg(a){a=Number(a);return `<svg viewBox="0 0 620 220">
 window.updateDivisionStructure=v=>{$("ml_u09_v").textContent=v;$("ml_u09_box").innerHTML=divisionStructureSvg(Number(v))}
 function remainderEvalSvg(a){a=Number(a);const val=a*a-3*a+2;return `<svg viewBox="0 0 620 220"><rect x="75" y="55" width="210" height="105" rx="17" fill="#eef4ff"/><text x="96" y="95" font-size="18">f(x)=x²−3x+2</text><text x="96" y="130" font-size="24">f(${a}) = ${val}</text><path d="M305 108 L390 108" stroke="#4f76dd" stroke-width="4"/><polygon points="390,108 375,99 375,117" fill="#4f76dd"/><text x="415" y="95" font-size="20" font-weight="800">${val===0?`x−${a} 是因式`:`餘式就是 ${val}`}</text><text x="415" y="125" font-size="14">不用真的做長除法</text></svg>`}
 window.updateRemainderEval=v=>{$("ml_u10_v").textContent=v;$("ml_u10_box").innerHTML=remainderEvalSvg(Number(v))}
-function vertexLabSvg(h,k){h=Number(h);k=Number(k);const X=x=>310+x*38,Y=y=>150-y*30,pts=[];for(let x=-5;x<=5;x+=.25){const y=(x-h)*(x-h)+k;if(y<6)pts.push(`${X(x)},${Y(y)}`)}return `<svg viewBox="0 0 620 300"><line x1="65" y1="${Y(0)}" x2="560" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="35" x2="${X(0)}" y2="260" stroke="#8795aa"/><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/><circle cx="${X(h)}" cy="${Y(k)}" r="8" fill="#ff668c"/><text x="${X(h)+10}" y="${Y(k)-10}" font-size="14">頂點 (${h},${k})</text><text x="395" y="55" font-size="17">y=(x−${h})²${k>=0?"+"+k:k}</text></svg>`}
+function vertexLabSvg(h,k){h=Number(h);k=Number(k);const X=x=>300+x*40,Y=y=>160-y*28,pts=[];for(let x=-5;x<=5;x+=.18){const y=(x-h)*(x-h)+k;if(y>-4&&y<5.2)pts.push(`${X(x)},${Y(y)}`)}return `<svg viewBox="0 0 620 320"><defs><clipPath id="vclip"><rect x="45" y="35" width="520" height="235" rx="12"/></clipPath></defs><rect x="45" y="35" width="520" height="235" rx="12" fill="#fbfdff" stroke="#d8e2ef"/><line x1="50" y1="${Y(0)}" x2="560" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="40" x2="${X(0)}" y2="265" stroke="#8795aa"/><g clip-path="url(#vclip)"><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/></g><line x1="${X(h)}" y1="45" x2="${X(h)}" y2="260" stroke="#b9c7dc" stroke-dasharray="6 6"/><circle cx="${X(h)}" cy="${Y(k)}" r="8" fill="#ff668c"/><text x="${X(h)+10}" y="${Y(k)-10}" font-size="14">頂點 (${h},${k})</text><text x="390" y="55" font-size="16" font-weight="800">a 固定 = 1</text><text x="390" y="82" font-size="14">h 只管左右</text><text x="390" y="105" font-size="14">k 只管上下</text><text x="390" y="128" font-size="14">x、y 仍是變數</text></svg>`}
 window.updateVertexLab=()=>{const h=Number($("ml_u11_h").value),k=Number($("ml_u11_k").value);$("ml_u11_h_v").textContent=h;$("ml_u11_k_v").textContent=k;$("ml_u11_box").innerHTML=vertexLabSvg(h,k)}
+function multiplicityLabSvg(mode="double"){const dbl=mode==="double",X=x=>300+x*48,Y=y=>155-y*22,pts=[];for(let x=-4;x<=5;x+=.1){const y=dbl?(x-1)*(x-1)*(x+2):(x-1)*(x+2);if(y>-5.2&&y<5.2)pts.push(`${X(x)},${Y(y)}`)}return `<svg viewBox="0 0 620 300"><line x1="60" y1="${Y(0)}" x2="560" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="35" x2="${X(0)}" y2="260" stroke="#8795aa"/><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/><circle cx="${X(1)}" cy="${Y(0)}" r="8" fill="#ff668c"/><text x="${X(1)+10}" y="${Y(0)-10}" font-size="14">x=1 ${dbl?"二重根":"一重根"}</text><text x="365" y="55" font-size="17" font-weight="800">${dbl?"(x−1)²(x+2)":"(x−1)(x+2)"}</text><text x="365" y="84" font-size="14">${dbl?"碰到 x 軸後折返":"穿過 x 軸"}</text><text x="365" y="108" font-size="14">${dbl?"兩側不換號":"兩側換號"}</text></svg>`}
+window.setMultiplicityMode=(mode,btn)=>{document.querySelectorAll("#ml_u12_box + .modeButtons button,.modeButtons button").forEach(b=>b.classList.remove("on"));btn?.classList.add("on");$("ml_u12_box").innerHTML=multiplicityLabSvg(mode)}
 function signProbeSvg(a,b,x){a=Number(a);b=Number(b);x=Number(x);const f=(x-a)*(x-b),X=v=>80+(v+5)*44;return `<svg viewBox="0 0 620 220"><line x1="80" y1="110" x2="520" y2="110" stroke="#8795aa" stroke-width="2"/><circle cx="${X(a)}" cy="110" r="8" fill="#3478f6"/><circle cx="${X(b)}" cy="110" r="8" fill="#3478f6"/><circle cx="${X(x)}" cy="110" r="9" fill="#ff668c"/><text x="${X(a)-8}" y="145" font-size="13">${a}</text><text x="${X(b)-8}" y="145" font-size="13">${b}</text><text x="330" y="50" font-size="20" font-weight="800">f(x)=(x+2)(x−2)</text><text x="330" y="78" font-size="16">x=${x} 時，f(x)=${f.toFixed(2)} → ${f>0?"正":f<0?"負":"0"}</text><text x="160" y="190" font-size="14">零點把數線切成區間，測一點就知道那一段的正負。</text></svg>`}
 window.updateSignProbe=v=>{$("ml_u12_v").textContent=v;$("ml_u12_box").innerHTML=signProbeSvg(-2,2,Number(v))}
+
+
+const QUAD={a:1,b:0,c:0,focus:"a"};
+function unitDeepDive(unit=currentUnit){
+ if(unit==="u11")return u11DeepDive();
+ if(unit==="u12")return u12DeepDive();
+ return ""
+}
+function u11DeepDive(){
+ return `<section class="deepDive">
+   <div class="sectionHead compactHead"><span class="num blue">A</span><div><h3>第三層｜一般式 a、b、c：一次只研究一個</h3><p>不是三個滑桿一起亂拖。先選現在要研究誰，再用同一支滑桿看它造成什麼變化。</p></div></div>
+   <div class="roleLegend">
+     <span class="var"><b>x</b> 輸入／未知位置</span><span class="var"><b>y</b> 輸出／結果</span>
+     <span><b>a</b> 開口與寬窄</span><span><b>b</b> 和 a 一起移動對稱軸</span><span><b>c</b> y 軸交點</span>
+   </div>
+   <div class="microLab quadraticGeneralLab">
+     <div class="modeButtons parameterMode"><button class="on" onclick="setQuadFocus('a',this)">只研究 a</button><button onclick="setQuadFocus('b',this)">只研究 b</button><button onclick="setQuadFocus('c',this)">只研究 c</button></div>
+     <div id="quadGeneralBox">${quadraticGeneralSvg()}</div>
+     <label class="heroSlider"><span id="qgLabel">a</span> = <span id="qgValue">1</span><input id="qgRange" type="range" min="-4" max="4" step=".5" value="1" oninput="updateQuadFocus(this.value)"></label>
+     <div id="qgExplain" class="plainExplain" data-voice><b>a：</b>只管開口方向與寬窄；不要把 b 誤認成開口大小。</div>
+   </div>
+   <details class="conceptExpansion" open>
+     <summary>📐 為什麼拋物線也會碰到「距離公式／畢氏定理」？</summary>
+     <div class="expansionBody">
+       <div class="plainExplain" data-voice><b>先分清楚：</b>高中二次函數平常理解 y=a(x−h)²+k，最簡單的方法是從 y=x² 做伸縮與平移；它不是像圓方程式那樣直接從畢氏定理生出來。若改用拋物線的幾何定義「到焦點與準線等距」推導，才會用到距離公式，而距離公式就是畢氏定理的座標版。</div>
+       <div id="focusDirectrixBox">${focusDirectrixSvg(2)}</div>
+       <label class="labSlider">拖圓錐曲線上的 x = <span id="fdx">2</span><input type="range" min="-4" max="4" step=".5" value="2" oninput="updateFocusDirectrix(this.value)"></label>
+     </div>
+   </details>
+   <details class="conceptExpansion">
+     <summary>↔ 延伸｜左右開口要不要學？</summary>
+     <div class="expansionBody">
+       <div class="plainExplain" data-voice><b>核心課程先不用把它和二次函數混在一起。</b> y=f(x) 的二次函數是上下開口；左右開口仍是拋物線，但一般不是單一 y=f(x)。先當成幾何延伸，知道概念即可。</div>
+       <div id="sideParaBox">${sideParabolaSvg(1)}</div>
+       <label class="labSlider">方向／寬窄係數 A = <span id="sideA">1</span><input type="range" min="-3" max="3" step=".5" value="1" oninput="updateSideParabola(this.value)"></label>
+     </div>
+   </details>
+   <div class="sectionHead compactHead"><span class="num amber">文</span><div><h3>生活題怎麼從文字變成二次式？</h3><p>這不是算式技巧，是翻譯技巧。</p></div></div>
+   <div class="modelingFlow">
+     <div><b>1. 先問誰會變？</b><p>把時間、價格、長度等設成 x，寫清楚單位。</p></div>
+     <div><b>2. 其他量用 x 表示</b><p>固定總量常變成「總量−x」。</p></div>
+     <div><b>3. 找關係</b><p>面積＝長×寬；收益＝價格×數量；高度＝時間的二次模型。</p></div>
+     <div><b>4. 選最好用的形式</b><p>給頂點用頂點式；給兩個零點用因式式；給係數才用一般式。</p></div>
+   </div>
+   <div class="workedScenario" data-voice><b>例｜40公尺燈條圍長方形</b><p>設寬 x 公尺。因為 2(長+寬)=40，所以長=20−x。面積 A=x(20−x)=−x²+20x。這時才去找頂點，得到 x=10 時面積最大。重點不是背 A 的公式，而是先把文字翻成「長=20−x」。</p></div>
+ </section>`
+}
+function setQuadFocus(focus,btn){
+ QUAD.focus=focus;document.querySelectorAll(".parameterMode button").forEach(b=>b.classList.remove("on"));btn?.classList.add("on");
+ const ranges={a:{min:-3,max:3,step:.5},b:{min:-4,max:4,step:1},c:{min:-4,max:4,step:1}},r=ranges[focus],el=$("qgRange");
+ el.min=r.min;el.max=r.max;el.step=r.step;el.value=QUAD[focus];$("qgLabel").textContent=focus;$("qgValue").textContent=QUAD[focus];renderQuadGeneral()
+}
+function updateQuadFocus(v){let n=Number(v);if(QUAD.focus==="a"&&Math.abs(n)<.001){n=.5;$("qgRange").value=n}QUAD[QUAD.focus]=n;$("qgValue").textContent=n;renderQuadGeneral()}
+function renderQuadGeneral(){
+ $("quadGeneralBox").innerHTML=quadraticGeneralSvg();
+ const e={a:"a 只管開口方向與寬窄；|a| 越大越窄。",b:"b 不管開口大小；它會和 a 一起改變對稱軸 x=−b/(2a)。",c:"c 是 x=0 時的 y，所以就是 y 軸交點 (0,c)。"}[QUAD.focus];
+ $("qgExplain").innerHTML=`<b>${QUAD.focus}：</b>${e}`
+}
+function quadraticGeneralSvg(){
+ let {a,b,c}=QUAD;if(Math.abs(a)<.01)a=.5;const X=x=>205+x*25,Y=y=>165-y*21,pts=[];
+ for(let x=-6;x<=6;x+=.12){const y=a*x*x+b*x+c;if(y>-6&&y<6)pts.push(`${X(x)},${Y(y)}`)}
+ const axis=-b/(2*a),vy=a*axis*axis+b*axis+c,disc=b*b-4*a*c,roots=disc>=0?[(-b-Math.sqrt(disc))/(2*a),(-b+Math.sqrt(disc))/(2*a)]:[];
+ return `<svg viewBox="0 0 620 340"><defs><clipPath id="qgclip"><rect x="45" y="35" width="325" height="245" rx="12"/></clipPath></defs><rect x="45" y="35" width="325" height="245" rx="12" fill="#fbfdff" stroke="#d8e2ef"/><line x1="50" y1="${Y(0)}" x2="365" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="40" x2="${X(0)}" y2="275" stroke="#8795aa"/><g clip-path="url(#qgclip)"><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/><line x1="${X(axis)}" y1="40" x2="${X(axis)}" y2="275" stroke="#b3c0d4" stroke-dasharray="6 5"/></g><circle cx="${X(0)}" cy="${Y(c)}" r="7" fill="#36a46f"/>${roots.filter(r=>r>=-6&&r<=6).map(r=>`<circle cx="${X(r)}" cy="${Y(0)}" r="7" fill="#ff668c"/>`).join("")}<circle cx="${X(axis)}" cy="${Y(vy)}" r="7" fill="#7c67ef"/>
+ <rect x="392" y="48" width="185" height="196" rx="15" fill="#f7f9fd" stroke="#dce5f2"/>
+ <text x="408" y="76" font-size="15" font-weight="800">y=${a}x² ${b>=0?"+":""}${b}x ${c>=0?"+":""}${c}</text>
+ <text x="408" y="105" font-size="13">a=${a} → 開口</text>
+ <text x="408" y="130" font-size="13">b=${b} → 軸 x=${axis.toFixed(2)}</text>
+ <text x="408" y="155" font-size="13">c=${c} → y截距 (0,${c})</text>
+ <text x="408" y="180" font-size="13">x截距：${disc<0?"無":roots.map(r=>r.toFixed(2)).join("、")}</text>
+ <text x="408" y="205" font-size="13">頂點：(${axis.toFixed(2)},${vy.toFixed(2)})</text>
+ <text x="408" y="230" font-size="11" fill="#718097">一次只拖一個係數，觀察它的工作。</text></svg>`
+}
+function focusDirectrixSvg(x){
+ x=Number(x);const p=1,y=x*x/4,F={x:0,y:1},D={x:x,y:-1},X=v=>275+v*45,Y=v=>155-v*34,pts=[];
+ for(let t=-4.5;t<=4.5;t+=.12){pts.push(`${X(t)},${Y(t*t/4)}`)}
+ const pf=Math.sqrt(x*x+(y-p)*(y-p)),pd=y+p;
+ return `<svg viewBox="0 0 620 340"><line x1="65" y1="${Y(0)}" x2="550" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="45" x2="${X(0)}" y2="280" stroke="#8795aa"/><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/><line x1="65" y1="${Y(-1)}" x2="550" y2="${Y(-1)}" stroke="#d36a82" stroke-width="3" stroke-dasharray="7 6"/><text x="440" y="${Y(-1)-8}" font-size="13" fill="#b34e68">準線 y=−1</text><circle cx="${X(0)}" cy="${Y(1)}" r="7" fill="#36a46f"/><text x="${X(0)+10}" y="${Y(1)-10}" font-size="13">焦點 F(0,1)</text><circle cx="${X(x)}" cy="${Y(y)}" r="7" fill="#7c67ef"/><text x="${X(x)+8}" y="${Y(y)-8}" font-size="13">P(${x},${y.toFixed(2)})</text><line x1="${X(x)}" y1="${Y(y)}" x2="${X(0)}" y2="${Y(1)}" stroke="#36a46f" stroke-width="3"/><line x1="${X(x)}" y1="${Y(y)}" x2="${X(x)}" y2="${Y(-1)}" stroke="#ff873b" stroke-width="3"/><rect x="380" y="185" width="180" height="88" rx="12" fill="#fff7e8" stroke="#efd59f"/><text x="395" y="211" font-size="13">PF = ${pf.toFixed(2)}</text><text x="395" y="235" font-size="13">P到準線距離 = ${pd.toFixed(2)}</text><text x="395" y="258" font-size="12" font-weight="800">兩距離相等 → 拋物線</text><text x="72" y="45" font-size="14" fill="#576782">PF 用距離公式（畢氏定理）；到準線是垂直距離</text></svg>`
+}
+window.updateFocusDirectrix=v=>{$("fdx").textContent=v;$("focusDirectrixBox").innerHTML=focusDirectrixSvg(Number(v))}
+function sideParabolaSvg(A){
+ A=Number(A);const X=x=>205+x*27,Y=y=>155-y*31,pts=[];
+ if(Math.abs(A)>.001){for(let y=-3.5;y<=3.5;y+=.1){const x=A*y*y;if(x>-5.5&&x<5.5)pts.push(`${X(x)},${Y(y)}`)}}
+ return `<svg viewBox="0 0 620 330"><rect x="45" y="35" width="325" height="235" rx="12" fill="#fbfdff" stroke="#d8e2ef"/><line x1="50" y1="${Y(0)}" x2="365" y2="${Y(0)}" stroke="#8795aa"/><line x1="${X(0)}" y1="40" x2="${X(0)}" y2="265" stroke="#8795aa"/>${Math.abs(A)>.001?`<polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/>`:`<line x1="${X(0)}" y1="45" x2="${X(0)}" y2="260" stroke="#4779ee" stroke-width="5"/>`}<circle cx="${X(0)}" cy="${Y(0)}" r="7" fill="#ff668c"/>
+ <rect x="395" y="55" width="180" height="150" rx="15" fill="#eef4ff" stroke="#d8e4fb"/>
+ <text x="412" y="83" font-size="17" font-weight="800">x=${A}y²</text>
+ <text x="412" y="111" font-size="14">${A>0?"向右開":A<0?"向左開":"A=0：不是拋物線"}</text>
+ <text x="412" y="139" font-size="13">頂點固定在 (0,0)</text>
+ <text x="412" y="165" font-size="13">左右開口是幾何延伸</text>
+ <text x="412" y="190" font-size="12">通常不當作單一 y=f(x)</text></svg>`
+}
+window.updateSideParabola=v=>{$("sideA").textContent=v;$("sideParaBox").innerHTML=sideParabolaSvg(Number(v))}
+function u12DeepDive(){
+ return `<section class="deepDive">
+   <div class="sectionHead compactHead"><span class="num blue">根</span><div><h3>三次式怎麼拆？先找到一個根，再降階</h3><p>把「解方程式」看成「找 x 軸交點」。</p></div></div>
+   <div class="factorFlow">
+     <div><b>原式</b><span>x³−6x²+11x−6=0</span></div><i>→</i>
+     <div><b>試簡單根</b><span>f(1)=0</span></div><i>→</i>
+     <div><b>提出因式</b><span>(x−1)(x²−5x+6)</span></div><i>→</i>
+     <div><b>再分解</b><span>(x−1)(x−2)(x−3)</span></div><i>→</i>
+     <div><b>根</b><span>1、2、3</span></div>
+   </div>
+   <div class="plainExplain" data-voice><b>一句話：</b>根 r 是解，所以會對應因式 (x−r)。三次式不用硬解；先找到一個根，就可以除掉一個一次因式，把問題降成你熟悉的二次式。</div>
+   <div class="sectionHead compactHead"><span class="num amber">區</span><div><h3>多項式不等式：不是看整條式子，是逐因式看每個區間</h3><p>根先切區間，各因式在同一區間內正負不變。</p></div></div>
+   <div class="signFactorTable">
+     <div class="head">區間</div><div class="head">x+2</div><div class="head">x−1</div><div class="head">x−3</div><div class="head">乘積</div>
+     <div>x&lt;−2</div><div>−</div><div>−</div><div>−</div><div class="neg">−</div>
+     <div>−2&lt;x&lt;1</div><div>＋</div><div>−</div><div>−</div><div class="pos">＋</div>
+     <div>1&lt;x&lt;3</div><div>＋</div><div>＋</div><div>−</div><div class="neg">−</div>
+     <div>x&gt;3</div><div>＋</div><div>＋</div><div>＋</div><div class="pos">＋</div>
+   </div>
+   <div class="sectionHead compactHead"><span class="num green">文</span><div><h3>應用題怎麼列式、怎麼拆？</h3><p>先抓「臨界值」，再把每一個臨界值翻成因式。</p></div></div>
+   <div class="modelingFlow">
+     <div><b>1. 定義 x</b><p>先寫 x 代表價格、時間、濃度或其他可變量。</p></div>
+     <div><b>2. 找臨界值</b><p>文字說「x=2 時剛好為0」→ 根2 → 因式(x−2)。</p></div>
+     <div><b>3. 組成乘積</b><p>三個臨界值2、5、8 → a(x−2)(x−5)(x−8)。</p></div>
+     <div><b>4. 翻回條件</b><p>題目說有效／獲利／正值 → 解 f(x)>0；低於標準 → 解 f(x)<0。</p></div>
+   </div>
+   <div class="workedScenario" data-voice><b>例｜三個臨界點的模型</b><p>若模型在 x=2、5、8 時都剛好為0，且最高次係數為正，可先寫 f(x)=a(x−2)(x−5)(x−8)，a&gt;0。根把數線切成四段；從最右側正區開始，三個一重根依序換號，就能讀出 f(x)&gt;0 的區間是 2&lt;x&lt;5 或 x&gt;8。</p></div>
+ </section>`
+}
 
 function renderVisual(type){
  if(type==="absolute_value")return absVisual();
@@ -621,10 +744,81 @@ window.updateLCDemo=()=>{
 }
 function divisionVisual(){return `<svg viewBox="0 0 620 260"><rect x="45" y="65" width="150" height="70" rx="15" fill="#eaf1ff"/><text x="85" y="107" font-size="20">除式 × 商</text><text x="230" y="108" font-size="28">＋</text><rect x="285" y="65" width="135" height="70" rx="15" fill="#eefaf5"/><text x="330" y="108" font-size="20">餘式</text><text x="455" y="108" font-size="28">＝</text><rect x="500" y="65" width="90" height="70" rx="15" fill="#fff5e4"/><text x="512" y="108" font-size="19">被除式</text><text x="150" y="205" font-size="18" font-weight="700">餘式次數一定 &lt; 除式次數</text></svg>`}
 function remainderVisual(){return `<svg viewBox="0 0 620 260"><rect x="65" y="70" width="170" height="90" rx="16" fill="#eaf1ff"/><text x="105" y="115" font-size="24">f(x)</text><text x="96" y="145" font-size="15">除以 x−a</text><path d="M255 115 L390 115" stroke="#3478f6" stroke-width="4"/><polygon points="390,115 374,106 374,124" fill="#3478f6"/><rect x="410" y="70" width="150" height="90" rx="16" fill="#edf9f4"/><text x="444" y="115" font-size="22">餘式 f(a)</text><text x="175" y="220" font-size="18" font-weight="700">若 f(a)=0 → x−a 是因式</text></svg>`}
-function parabolaVisual(){return `<div id="paraBox">${parabolaSvg(1,0,0)}</div><div class="controlRow"><label>a <span class="valueBadge" id="pa">1</span></label><input id="paR" type="range" min="-3" max="3" step=".5" value="1" oninput="updatePara()"><label>h <span class="valueBadge" id="ph">0</span></label><input id="phR" type="range" min="-3" max="3" value="0" oninput="updatePara()"><label>k <span class="valueBadge" id="pk">0</span></label><input id="pkR" type="range" min="-3" max="3" value="0" oninput="updatePara()"></div>`}
-function parabolaSvg(a,h,k){let pts=[];for(let x=-5;x<=5;x+=.2){let y=a*Math.pow(x-h,2)+k;let sx=310+x*45,sy=150-y*18;if(sy>-80&&sy<350)pts.push(`${sx},${sy}`)}return `<svg viewBox="0 0 620 300"><line x1="40" y1="150" x2="580" y2="150" stroke="#8da0bf"/><line x1="310" y1="25" x2="310" y2="275" stroke="#8da0bf"/><polyline points="${pts.join(" ")}" fill="none" stroke="#3478f6" stroke-width="4"/><circle cx="${310+h*45}" cy="${150-k*18}" r="7" fill="#ef6687"/><text x="360" y="45" font-size="18" font-weight="700">y=${a}(x−${h})²+${k}</text></svg>`}
-window.updatePara=()=>{const a=Number($("paR").value),h=Number($("phR").value),k=Number($("pkR").value);$("pa").textContent=a;$("ph").textContent=h;$("pk").textContent=k;$("paraBox").innerHTML=parabolaSvg(a,h,k)}
-function signVisual(){return `<svg viewBox="0 0 620 270"><line x1="65" y1="140" x2="560" y2="140" stroke="#7f8ea5" stroke-width="2"/><circle cx="220" cy="140" r="7" fill="#3478f6"/><circle cx="420" cy="140" r="7" fill="#3478f6"/><text x="203" y="170" font-size="15">−2</text><text x="414" y="170" font-size="15">1</text><text x="125" y="105" font-size="24" fill="#27b67a">＋</text><text x="310" y="105" font-size="24" fill="#e25858">−</text><text x="500" y="105" font-size="24" fill="#27b67a">＋</text><text x="115" y="225" font-size="19" font-weight="700">(x+2)(x−1)&gt;0 → x&lt;−2 或 x&gt;1</text></svg>`}
+function parabolaVisual(){
+ return `<div class="parabolaStage">
+   <div class="parameterRoles">
+     <span class="var"><b>x</b><small>輸入／位置，會變</small></span>
+     <span class="var"><b>y</b><small>輸出／結果，會跟著變</small></span>
+     <span class="coef focus"><b>a</b><small>固定係數：先只研究它</small></span>
+   </div>
+   <div id="paraBox">${parabolaASvg(1)}</div>
+   <label class="heroSlider">只拖 a：<span class="valueBadge" id="pa">1</span>
+     <input id="paR" type="range" min="-3" max="3" step=".5" value="1" oninput="updateParaA()">
+   </label>
+   <div class="plainExplain" data-voice><b>先只記一件事：</b> a 的正負決定開口朝上或朝下；|a| 越大，圖越窄。先不要把 h、k、b、c 一次塞進來。</div>
+ </div>`
+}
+function parabolaASvg(a){
+ a=Number(a);const W=620,H=330,cx=205,cy=185,sx=27,sy=25,X=x=>cx+x*sx,Y=y=>cy-y*sy,pts=[];
+ for(let x=-5.5;x<=5.5;x+=.12){const y=a*x*x;if(y>-5.2&&y<6.2)pts.push(`${X(x)},${Y(y)}`)}
+ const dir=a>0?"向上開":a<0?"向下開":"a=0：不是二次函數";
+ const width=a===0?"—":Math.abs(a)>=2?"較窄":Math.abs(a)<=.5?"較寬":"一般";
+ return `<svg viewBox="0 0 ${W} ${H}">
+  <defs><clipPath id="paraAclip"><rect x="42" y="35" width="325" height="245" rx="12"/></clipPath></defs>
+  <rect x="42" y="35" width="325" height="245" rx="12" fill="#fbfdff" stroke="#d7e1ee"/>
+  <line x1="48" y1="${Y(0)}" x2="360" y2="${Y(0)}" stroke="#8595aa" stroke-width="2"/>
+  <line x1="${X(0)}" y1="40" x2="${X(0)}" y2="275" stroke="#8595aa" stroke-width="2"/>
+  <text x="340" y="${Y(0)-9}" font-size="13" fill="#65758e">x</text>
+  <text x="${X(0)+9}" y="55" font-size="13" fill="#65758e">y</text>
+  <g clip-path="url(#paraAclip)"><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="5"/></g>
+  <circle cx="${X(0)}" cy="${Y(0)}" r="7" fill="#ff668c"/>
+  <text x="${X(0)+10}" y="${Y(0)+22}" font-size="12" fill="#b94369">頂點 (0,0)</text>
+  <rect x="390" y="50" width="180" height="150" rx="16" fill="#eef4ff" stroke="#d8e4fb"/>
+  <text x="406" y="80" font-size="18" font-weight="800" fill="#314e90">y = ${a}x²</text>
+  <text x="406" y="112" font-size="14" fill="#52617a">x：輸入，會變</text>
+  <text x="406" y="136" font-size="14" fill="#52617a">y：輸出，會跟著變</text>
+  <text x="406" y="160" font-size="14" fill="#52617a">a：${dir}</text>
+  <text x="406" y="184" font-size="14" fill="#52617a">|a|：${width}</text>
+  <text x="390" y="235" font-size="13" fill="#718097">先只研究 a；h、k 下一張再看。</text>
+ </svg>`
+}
+window.updateParaA=()=>{
+ const a=Number($("paR").value);$("pa").textContent=a;$("paraBox").innerHTML=parabolaASvg(a)
+}
+
+function signVisual(){
+ return `<div class="cubicRootStage">
+   <div class="rootMeaning" data-voice><b>根是什麼？</b><span>根 r 就是讓 f(r)=0 的 x。圖上就是曲線碰到 x 軸的地方 (r,0)，代數上就是因式 (x−r)。</span></div>
+   <div id="cubicRootBox">${cubicRootSvg(0)}</div>
+   <label class="heroSlider">拖測試 x = <span class="valueBadge" id="crx">0</span>
+     <input id="crxR" type="range" min="-4" max="5" step=".5" value="0" oninput="updateCubicRoot()">
+   </label>
+ </div>`
+}
+function cubicRootSvg(x){
+ x=Number(x);const roots=[-2,1,3],X=v=>285+v*48,Y=v=>165-v*8;
+ const f=v=>(v+2)*(v-1)*(v-3),pts=[];
+ for(let t=-4.5;t<=5;t+=.08){const y=f(t);if(y>-15&&y<15)pts.push(`${X(t)},${Y(y)}`)}
+ const vals=[x+2,x-1,x-3],prod=f(x);
+ const sign=v=>v>0?"+":v<0?"−":"0";
+ return `<svg viewBox="0 0 620 350">
+   <defs><clipPath id="cubicClip"><rect x="55" y="35" width="500" height="245" rx="12"/></clipPath></defs>
+   <rect x="55" y="35" width="500" height="245" rx="12" fill="#fbfdff" stroke="#d7e1ee"/>
+   <line x1="60" y1="${Y(0)}" x2="550" y2="${Y(0)}" stroke="#8795aa" stroke-width="2"/>
+   <line x1="${X(0)}" y1="40" x2="${X(0)}" y2="275" stroke="#8795aa" stroke-width="2"/>
+   <g clip-path="url(#cubicClip)"><polyline points="${pts.join(" ")}" fill="none" stroke="#4779ee" stroke-width="4"/></g>
+   ${roots.map(r=>`<circle cx="${X(r)}" cy="${Y(0)}" r="7" fill="#ff668c"/><text x="${X(r)-12}" y="${Y(0)+24}" font-size="13" fill="#ad3f63">${r}</text>`).join("")}
+   <circle cx="${X(x)}" cy="${Y(Math.max(-14,Math.min(14,prod)))}" r="7" fill="#7c67ef"/>
+   <text x="72" y="62" font-size="19" font-weight="800" fill="#324a78">f(x)=(x+2)(x−1)(x−3)</text>
+   <text x="72" y="88" font-size="13" fill="#65758d">三個根：−2、1、3 → 三個 x 軸交點 → 三個一次因式</text>
+   <rect x="350" y="190" width="188" height="74" rx="12" fill="#fff6df" stroke="#edd49d"/>
+   <text x="365" y="216" font-size="13" fill="#66532c">x=${x} 時：</text>
+   <text x="365" y="239" font-size="14" font-weight="800" fill="#5b4a28">${sign(vals[0])} × ${sign(vals[1])} × ${sign(vals[2])} = ${sign(prod)}</text>
+   <text x="365" y="258" font-size="11" fill="#76674f">逐因式判號，再把正負乘起來</text>
+ </svg>`
+}
+window.updateCubicRoot=()=>{const x=Number($("crxR").value);$("crx").textContent=x;$("cubicRootBox").innerHTML=cubicRootSvg(x)}
+
 
 
 
@@ -780,14 +974,22 @@ function typeVisual(id){
   return `<svg viewBox="0 0 620 220"><text x="70" y="60" font-size="18">已知餘式 → 代入特殊 x 值</text><rect x="70" y="85" width="180" height="70" rx="14" fill="#eef4ff"/><text x="105" y="128" font-size="20">f(2)=某個數</text><path d="M270 120 L370 120" stroke="#3478f6" stroke-width="4"/><polygon points="370,120 355,111 355,129" fill="#3478f6"/><rect x="395" y="85" width="155" height="70" rx="14" fill="#fff6e7"/><text x="420" y="128" font-size="20">解出參數</text></svg>`;
  }
  if(u==='u11'){
-  if(n===1)return parabolaSvg(1,2,1);
-  if(n===2)return `<svg viewBox="0 0 620 230"><text x="80" y="55" font-size="22">y=2x²−8x+3</text><text x="80" y="95" font-size="18">對稱軸 x=−b/(2a)=2</text><path d="M310 115 L310 205" stroke="#ff6f9a" stroke-dasharray="6 6" stroke-width="3"/><path d="M175 75 Q310 230 445 75" fill="none" stroke="#3478f6" stroke-width="4"/><circle cx="310" cy="190" r="7" fill="#ff6f9a"/><text x="330" y="195" font-size="14">頂點</text></svg>`;
-  return `<svg viewBox="0 0 620 230"><path d="M130 190 Q310 20 490 190" fill="none" stroke="#3478f6" stroke-width="4"/><circle cx="310" cy="65" r="8" fill="#ff6f9a"/><text x="330" y="60" font-size="16">最高點＝最大值</text><text x="180" y="215" font-size="14">收入、軌跡、人氣模型常把頂點翻成實際意義</text></svg>`;
+  if(n===1)return parabolaASvg(2);
+  if(n===2)return vertexLabSvg(2,-1);
+  if(n===3)return `<svg viewBox="0 0 620 260"><line x1="65" y1="190" x2="560" y2="190" stroke="#8795aa"/><line x1="285" y1="35" x2="285" y2="225" stroke="#8795aa"/><path d="M135 70 Q285 245 435 70" fill="none" stroke="#4779ee" stroke-width="4"/><circle cx="285" cy="124" r="7" fill="#36a46f"/><text x="300" y="122" font-size="13">y軸交點 c</text><line x1="350" y1="45" x2="350" y2="220" stroke="#b5c2d6" stroke-dasharray="6 5"/><text x="365" y="62" font-size="14">對稱軸 x=−b/(2a)</text><text x="80" y="45" font-size="18" font-weight="800">一般式 y=ax²+bx+c</text><text x="80" y="225" font-size="13">a 管開口｜b 和 a 一起管軸｜c 是 y 截距</text></svg>`;
+  if(n===4)return `<svg viewBox="0 0 620 250"><line x1="60" y1="170" x2="560" y2="170" stroke="#8795aa"/><path d="M130 60 Q300 265 470 60" fill="none" stroke="#4779ee" stroke-width="4"/><circle cx="220" cy="170" r="8" fill="#ff668c"/><circle cx="380" cy="170" r="8" fill="#ff668c"/><text x="205" y="198" font-size="14">x=2</text><text x="365" y="198" font-size="14">x=3</text><text x="105" y="40" font-size="18" font-weight="800">根＝令 y=0 的 x＝x軸交點</text><text x="190" y="230" font-size="14">(x−2)(x−3)=0 ↔ 兩個交點</text></svg>`;
+  if(n===5)return `<svg viewBox="0 0 620 260"><rect x="80" y="70" width="210" height="110" fill="#eef4ff" stroke="#4779ee" stroke-width="3"/><text x="100" y="55" font-size="16">周長固定40</text><text x="120" y="130" font-size="18">寬 x</text><text x="175" y="200" font-size="18">長 20−x</text><path d="M355 205 Q440 45 525 205" fill="none" stroke="#ff668c" stroke-width="4"/><circle cx="440" cy="92" r="8" fill="#7c67ef"/><text x="350" y="35" font-size="17" font-weight="800">文字 → A=x(20−x) → 頂點最大</text></svg>`;
+  if(n===6)return sideParabolaSvg(1);
+  return parabolaASvg(1);
  }
  if(u==='u12'){
-  if(n===1)return `<svg viewBox="0 0 620 210"><line x1="65" y1="115" x2="555" y2="115" stroke="#7e8da5"/><circle cx="210" cy="115" r="7" fill="#3478f6"/><circle cx="410" cy="115" r="11" fill="none" stroke="#ff6f9a" stroke-width="4"/><text x="180" y="155" font-size="14">單根：常換號</text><text x="375" y="155" font-size="14">二重根：常不換號</text><text x="165" y="55" font-size="18">根的「重數」會影響符號是否翻轉</text></svg>`;
-  if(n===2)return signVisual();
-  return `<svg viewBox="0 0 620 220"><path d="M80 120 C170 65 220 120 300 120 C390 120 420 70 540 115" fill="none" stroke="#3478f6" stroke-width="4"/><line x1="300" y1="70" x2="300" y2="165" stroke="#ff6f9a" stroke-dasharray="5 5"/><text x="240" y="190" font-size="15">偶重根：碰到 x 軸又回去，符號不換</text></svg>`;
+  if(n===1)return `<svg viewBox="0 0 620 240"><line x1="70" y1="140" x2="550" y2="140" stroke="#8795aa" stroke-width="2"/><path d="M95 195 C180 40 235 220 310 140 S425 65 535 105" fill="none" stroke="#4779ee" stroke-width="4"/><circle cx="215" cy="140" r="8" fill="#ff668c"/><text x="180" y="115" font-size="16">f(r)=0</text><text x="175" y="175" font-size="14">(r,0)</text><text x="340" y="45" font-size="17" font-weight="800">根＝解＝x軸交點</text></svg>`;
+  if(n===2)return `<svg viewBox="0 0 620 250"><rect x="55" y="75" width="145" height="70" rx="12" fill="#eef4ff"/><text x="72" y="116" font-size="17">三次式 f(x)</text><path d="M215 110 L285 110" stroke="#4779ee" stroke-width="4"/><polygon points="285,110 271,102 271,118" fill="#4779ee"/><rect x="300" y="75" width="145" height="70" rx="12" fill="#eefaf5"/><text x="315" y="103" font-size="15">找到根 r</text><text x="315" y="128" font-size="15">提出 (x−r)</text><path d="M460 110 L525 110" stroke="#4779ee" stroke-width="4"/><polygon points="525,110 511,102 511,118" fill="#4779ee"/><text x="180" y="195" font-size="18" font-weight="800">三次 → 除掉一次因式 → 變二次，再繼續分解</text></svg>`;
+  if(n===3)return cubicRootSvg(0);
+  if(n===4)return `<svg viewBox="0 0 620 260"><line x1="70" y1="145" x2="550" y2="145" stroke="#8795aa"/><circle cx="190" cy="145" r="7" fill="#3478f6"/><circle cx="320" cy="145" r="7" fill="#3478f6"/><circle cx="450" cy="145" r="7" fill="#3478f6"/><text x="178" y="172" font-size="13">−2</text><text x="314" y="172" font-size="13">1</text><text x="444" y="172" font-size="13">3</text><text x="120" y="105" font-size="22" fill="#d95368">−</text><text x="245" y="105" font-size="22" fill="#2f9b68">＋</text><text x="375" y="105" font-size="22" fill="#d95368">−</text><text x="500" y="105" font-size="22" fill="#2f9b68">＋</text><text x="105" y="55" font-size="17" font-weight="800">根把數線切段；每段逐因式判號</text></svg>`;
+  if(n===5)return multiplicityLabSvg("double");
+  if(n===6)return `<svg viewBox="0 0 620 250"><text x="70" y="52" font-size="18" font-weight="800">文字中的臨界值 → 根 → 因式 → 不等式</text><rect x="75" y="80" width="95" height="55" rx="10" fill="#eef4ff"/><text x="94" y="113" font-size="15">x=2</text><rect x="195" y="80" width="95" height="55" rx="10" fill="#eef4ff"/><text x="214" y="113" font-size="15">x=5</text><rect x="315" y="80" width="95" height="55" rx="10" fill="#eef4ff"/><text x="334" y="113" font-size="15">x=8</text><path d="M430 107 L500 107" stroke="#4779ee" stroke-width="4"/><polygon points="500,107 486,99 486,115" fill="#4779ee"/><text x="80" y="180" font-size="16">f(x)=a(x−2)(x−5)(x−8)</text><text x="80" y="212" font-size="14">題目說『正值才有效』 → 解 f(x)&gt;0</text></svg>`;
+  return signVisual();
  }
  return numberSetVisual();
 }
