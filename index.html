@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>高中攻克基地 4.8｜今天只攻一關</title>
+<title>高中攻克基地 4.9｜今天只攻一關</title>
 <link rel="stylesheet" href="assets/css/account.css">
 <style>
 :root{--navy:#09152f;--navy2:#142b61;--ink:#18243f;--muted:#6f7c91;--line:#dce5f2}
@@ -22,22 +22,23 @@ details{margin-top:13px;border-top:1px solid #e7edf5;padding-top:11px}summary{cu
 @media(max-width:650px){.hero{padding:48px 8px 42px}.today{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}.route div:last-child{grid-column:span 2}.topActions a:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){body:before,body:after{animation:none}}
 </style>
+<link rel="stylesheet" href="assets/css/voice-reader.css">
 </head>
 <body>
 <main class="wrap">
 <header class="top">
- <div class="logo"><div class="mark">∑</div><div><b>高中攻克基地 4.8</b><small>內容很深，但一次只看下一步</small></div></div>
+ <div class="logo"><div class="mark">∑</div><div><b>高中攻克基地 4.9</b><small>內容很深，但一次只看下一步</small></div></div>
  <div class="topActions"><button onclick="HSLAccount.openPanel()"><span data-account-name>登入</span></button><a href="admin-progress.html">版主</a><a href="manager.html">題庫</a></div>
 </header>
 <section class="hero">
  <div class="eyebrow">TODAY'S QUEST</div>
  <h1>今天只攻<strong>一關</strong></h1>
- <p>不用先看完整章、也不用先背公式。進去只做一件事：玩一張圖、抓一個觀念、做一題。過關後才會看到下一步。</p>
+ <p data-voice>不用先看完整章、也不用先背公式。進去只做一件事：玩一張圖、抓一個觀念、做一題。過關後才會看到下一步。</p>
  <a class="start" href="math.html">⚔️ 開始今天任務</a>
 </section>
 <section class="mainCard">
  <div class="today">
-  <div><h2>先讓「不會」變成「就這樣？」</h2><p>直線單元現在可隨時回看已完成關卡；每關仍只留一個互動、一句高手提醒、一題確認。素養題也已重整為10種不同能力，不再只換情境與數字。</p></div>
+  <div data-voice><h2>先讓「不會」變成「就這樣？」</h2><p>直線單元現在可隨時回看已完成關卡；每關仍只留一個互動、一句高手提醒、一題確認。素養題也已重整為10種不同能力，不再只換情境與數字。</p></div>
   <div class="todayAction"><b id="resumeTitle">你的進度會保留</b><span id="resumeText">登入後會依帳號保存，不受4.8、5.0更新影響。</span><a href="math.html">繼續學習 →</a></div>
  </div>
  <details>
@@ -48,6 +49,7 @@ details{margin-top:13px;border-top:1px solid #e7edf5;padding-top:11px}summary{cu
 </section>
 </main>
 <script src="assets/js/account-core.js"></script>
+<script src="assets/js/voice-reader.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
  HSLAccount.boot({promptIfMissing:false});

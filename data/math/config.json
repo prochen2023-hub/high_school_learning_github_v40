@@ -1,5 +1,5 @@
 {
-  "version": "4.8",
+  "version": "4.9",
   "subject": "math",
   "grade": "10",
   "semester": "1",
@@ -44,6 +44,7 @@
     "account_backup_export_import",
     "collinearity_lab",
     "concept_glossary",
+    "dynamic_voice_buttons",
     "error_analysis",
     "expanded_coordinate_range",
     "first_learning",
@@ -61,6 +62,7 @@
     "local_svg_diagrams",
     "locked_practice_preview",
     "mastery_estimation",
+    "math_symbol_speech_cleanup",
     "micro_checks",
     "micro_summaries",
     "multi_slider_life_intersection_lab",
@@ -75,11 +77,14 @@
     "revisit_completed_steps",
     "rich_prior_recall",
     "scrollable_visual_frame",
+    "selective_voice_guide",
     "similar_questions",
     "simple_quest_default",
     "simplified_homepage",
     "slope_slider",
+    "slow_natural_speech_rate",
     "spaced_review",
+    "speech_pause_resume",
     "stable_account_progress",
     "stage_checkpoints",
     "star_mastery",
@@ -98,7 +103,8 @@
     "unique_boss_bank",
     "worked_examples",
     "wrapped_slider_controls",
-    "youth_progress_nudges"
+    "youth_progress_nudges",
+    "zh_tw_voice_preference"
   ],
   "diagram_data": "data/math/diagrams.json",
   "type_lessons": "data/math/type_lessons.json"

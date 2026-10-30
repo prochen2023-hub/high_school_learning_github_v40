@@ -1,0 +1,25 @@
+
+/* 4.9 selective voice guide */
+.voiceReadable{position:relative!important;padding-right:max(48px,var(--voice-pad,0px))!important}
+.voiceReadBtn{
+ position:absolute!important;right:8px!important;top:8px!important;z-index:7!important;
+ width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;
+ display:grid!important;place-items:center!important;padding:0!important;margin:0!important;
+ border:1px solid rgba(83,105,150,.22)!important;border-radius:50%!important;
+ background:rgba(255,255,255,.92)!important;color:#2c4375!important;
+ box-shadow:0 3px 10px rgba(29,49,89,.08)!important;cursor:pointer!important;
+ font-size:15px!important;line-height:1!important;transition:.16s ease!important
+}
+.voiceReadBtn:hover{transform:scale(1.06);background:#eef4ff!important}
+.voiceReadBtn.speaking{background:#254fa9!important;color:#fff!important;border-color:#254fa9!important;box-shadow:0 0 0 4px rgba(69,105,211,.12)!important}
+.voiceReadBtn.paused{background:#fff2cf!important;color:#8c650d!important;border-color:#e5c36a!important}
+.voiceReadBtn:focus-visible{outline:3px solid rgba(73,109,220,.28)!important;outline-offset:2px!important}
+.questHeroCard.voiceReadable .voiceReadBtn,.finalMotto.voiceReadable .voiceReadBtn{
+ background:rgba(255,255,255,.16)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important
+}
+.questHeroCard.voiceReadable .voiceReadBtn.speaking,.finalMotto.voiceReadable .voiceReadBtn.speaking{background:#fff!important;color:#244ca0!important}
+@media(max-width:520px){
+ .voiceReadable{padding-right:max(44px,var(--voice-pad,0px))!important}
+ .voiceReadBtn{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important;right:6px!important;top:6px!important}
+}
+.noSpeechApi .voiceReadBtn{display:none!important}
